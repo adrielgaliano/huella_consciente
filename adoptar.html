@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoptar - Huella Consciente</title>
+  <link rel="icon" href= "images/Isotipo_sin_fondo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <!-- Menú Desktop -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Isotipo_sin_fondo.png" alt="Huella Consciente" />
+        <span>Huella Consciente</span>
+      </a>
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="adoptar.html">Adoptá</a>
+        <a href="Anunciantes.html">Aliados Estratégicos</a>
+        <a href="refugios.html">Refugios</a>
+        <a href="contacto.html">Contacto</a>
+      <button class="donar-btn"><a href="donaciones.html">Donar 🤎</a></button>
+    </nav>
+    <span class="hamburger" onclick="openNav()">☰</span>
+  </header>
+
+  <!-- Menú overlay -->
+  <div id="myNav" class="overlay">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+      <a href="index.html">Inicio</a>
+      <a href="adoptar.html">Adoptá</a>
+      <a href="Anunciantes.html">Aliados Estratégicos</a>
+      <a href="refugios.html">Refugios</a>
+      <a href="contacto.html">Contacto</a>
+    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
+  </div>
+
+  <script src="js/menu.js"></script>
+
+<section class="refugios">
+  <h2>Adoptá, cambiá una vida</h2>
+  <p>Cada uno de ellos tiene una historia única y está listo para compartir su cariño con vos.</p>
+</section>
+
+  <!-- Filtros -->
+<div class="search-filters-container">
+  <input type="text" id="searchInput" placeholder="Buscar...">
+  <button id="toggleFilters">Filtros</button>
+</div>
+
+<div id="filtersMenu" class="oculto">
+  <select id="filterAnimal">
+    <option value="">Animal</option>
+    <option value="perro">Perro</option>
+    <option value="gato">Gato</option>
+  </select>
+
+  <select id="filterSize">
+    <option value="">Tamaño</option>
+    <option value="pequeño">Pequeño</option>
+    <option value="mediano">Mediano</option>
+    <option value="grande">Grande</option>
+  </select>
+
+  <select id="filterSex">
+    <option value="">Sexo</option>
+    <option value="macho">Macho</option>
+    <option value="hembra">Hembra</option>
+  </select>
+
+  <select id="filterAge">
+    <option value="">Edad</option>
+    <option value="cachorro">Cachorro (menos de 1 año)</option>
+    <option value="adulto">Adulto (entre 1 y 7 años)</option>
+    <option value="senior">Senior (más de 7 años)</option>
+  </select>
+
+  <select id="filterShelter">
+    <option value=""> Refugio</option>
+    <option value="lula"> La Casita de Lula</option>
+    <option value="rousi"> FUNDACION HOGAR ROUSI</option>
+    <option value="gatitosmdz"> Gatitos en adopción Mendoza</option>
+    <option value="refugiodiego"> El Refugio de Diego</option>
+  </select>
+</div>
+
+
+  <!-- Lista de mascotas -->
+  <section id="pet-list" class="pet-grid">
+    <!-- Mascota 1 -->
+    <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="8"
+      data-shelter="lula">
+      <img src="images/amarilla.jpeg" alt="Amarilla">
+      
+      <div class="pet-info">
+        <h3>Amarilla</h3>
+        <ul>
+          <li><b>Edad:</b> 8/9 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Amarilla es una perrita adulta, de unos 8 o 9 años, que a pesar de haber perdido una de sus patitas no ha perdido su ternura ni sus ganas de recibir cariño. Espera encontrar un hogar donde pueda disfrutar de una vida rodeada de amor y cuidados. 🐾💛</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+    <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="1,5"
+      data-shelter="lula">
+      <img src="images/duki.jpeg" alt="Duki">
+      <div class="pet-info">
+        <h3>Duki</h3>
+        <ul>
+          <li><b>Edad:</b> 1 año y medio aprox</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Este negrito de mirada tierna busca una familia que le dé amor y un lugar seguro. Es dulce, compañero y está listo para conocer su hogar definitivo. 🐶🖤</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+    <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age=""
+      data-shelter="lula">
+      <img src="images/mami.jpeg" alt="Mami">
+      <div class="pet-info">
+        <h3>Mami</h3>
+        <ul>
+          <li><b>Edad:</b> adulta</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Mami es una perrita adulta, castrada y de carácter encantador. Es muy buena, cariñosa y se lleva de maravilla con otros animales y personas. Alegre y llena de ternura, espera una familia que la reciba con amor y le dé el hogar que merece. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+    <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age=""
+      data-shelter="lula">
+      <img src="images/lucero.jpeg" alt="Lucero">
+      <div class="pet-info">
+        <h3>Lucero</h3>
+        <ul>
+          <li><b>Edad:</b> adulta</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Lucero es una perrita adulta y castrada, muy cariñosa y sociable. Se lleva muy bien con otros perros y ya tiene sus dientitos tratados, lista para sonreírle a la vida. Sueña con un hogar donde pueda recibir todo el amor que merece. 🐶✨💖</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="macho"
+      data-age=""
+      data-shelter="lula">
+      <img src="images/indio.jpeg" alt="Indio">
+      <div class="pet-info">
+        <h3>Indio</h3>
+        <ul>
+          <li><b>Edad:</b> adulto</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Indio es un perrito adulto de tamaño grande, lleno de energía y alegría. Es muy juguetón, cariñoso y está listo para conquistar a una familia que lo quiera y lo acompañe en todas sus aventuras. 🐾🤍🖤</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age=""
+      data-shelter="lula">
+      <img src="images/negrito_kachipum.jpeg" alt="Negrito Kachipum">
+      <div class="pet-info">
+        <h3>Negrito Kachipum</h3>
+        <ul>
+          <li><b>Edad:</b> adulto</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Negrito Kachipum es un perrito adulto, mediano y castrado. Alegre y juguetón, siempre busca cariño y compañía. Está listo para llenar de amor y diversión el hogar que lo adopte. 🐾🖤✨</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age=""
+      data-shelter="lula">
+      <img src="images/cruela.jpeg" alt="Cruela">
+      <div class="pet-info">
+        <h3>Cruela</h3>
+        <ul>
+          <li><b>Edad:</b> Adulta</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Cruela es una perrita adulta, castrada y con varios años, pero con mucho amor aún para dar. Es muy buena con las personas y espera un hogar donde pueda sentirse querida y acompañada. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="10"
+      data-shelter="lula">
+      <img src="images/tintin.jpeg" alt="Tintin">
+      <div class="pet-info">
+        <h3>Tintin</h3>
+        <ul>
+          <li><b>Edad:</b> 10 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Tintin es un caniche adulto de 10 años que busca un hogar tranquilo y lleno de cariño, donde pueda recibir todo el amor que merece. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age=""
+      data-shelter="lula">
+      <img src="images/dulce.jpeg" alt="Dulce">
+      <div class="pet-info">
+        <h3>Dulce</h3>
+        <ul>
+          <li><b>Edad:</b> Joven</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Dulce es una perrita joven, tipo ovejero belga, llena de ternura y energía. Usa carrito para desplazarse, pero eso no le impide disfrutar de la vida y repartir cariño. Está en busca de un hogar donde la amen tal como es. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="1"
+      data-shelter="lula">
+      <img src="images/banky.jpeg" alt="Banky">
+      <div class="pet-info">
+        <h3>Banky</h3>
+        <ul>
+          <li><b>Edad:</b> 1 año</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Banky es una perrita joven de 1 año, castrada y muy cariñosa. Busca una familia que le brinde amor y un hogar donde pueda crecer rodeada de cuidados y compañía. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="hembra"
+      data-age="10"
+      data-shelter="lula">
+      <img src="images/lupe.jpeg" alt="Lupe">
+      <div class="pet-info">
+        <h3>Lupe</h3>
+        <ul>
+          <li><b>Edad:</b> 10 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Lupe es una perrita de raza Fila de 10 años, muy tranquila y cariñosa. Le falta una patita, pero eso no le impide disfrutar de sus días y dar mucho amor. Busca un hogar donde pueda descansar y sentirse querida. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="macho"
+      data-age="10"
+      data-shelter="lula">
+      <img src="images/silvano.jpeg" alt="Silvano">
+      <div class="pet-info">
+        <h3>Silvano</h3>
+        <ul>
+          <li><b>Edad:</b> 10 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Silvano es un pointer macho de 10 años, tranquilo y noble. Busca un hogar donde pueda pasar sus días rodeado de cariño y cuidados, disfrutando de la compañía y el afecto que tanto merece. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="macho"
+      data-age="12"
+      data-shelter="lula">
+      <img src="images/oso.jpeg" alt="Oso">
+      <div class="pet-info">
+        <h3>Oso</h3>
+        <ul>
+          <li><b>Edad:</b> 12 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Oso es un boyero de Berna macho de 12 años, tranquilo y cariñoso. Busca un hogar donde pueda pasar sus años rodeado de amor, compañía y muchos mimos. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="macho"
+      data-age="10"
+      data-shelter="lula">
+      <img src="images/severo.jpeg" alt="Severo">
+      <div class="pet-info">
+        <h3>Severo</h3>
+        <ul>
+          <li><b>Edad:</b> 10 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> La Casita de Lula</li>
+        </ul>
+        <p>Severo es un perrito macho de 10 años, dulce y tranquilo. Busca un hogar lleno de cariño donde pueda disfrutar de compañía y cuidados en esta etapa de su vida. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615099625" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="4"
+      data-shelter="rousi">
+      <img src="images/zeus.jpeg" alt="Zeus">
+      <div class="pet-info">
+        <h3>Zeus</h3>
+        <ul>
+          <li><b>Edad:</b> 4 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Zeus es un perrito pequeño de 4 años, castrado y vacunado. Tiene tres patitas, pero eso no le impide ser activo y cariñoso. Busca un hogar donde lo llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+    </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="0,25"
+      data-shelter="rousi">
+      <img src="images/lilo.jpeg" alt="Lilo">
+      <div class="pet-info">
+        <h3>Lilo</h3>
+        <ul>
+          <li><b>Edad:</b> 3 meses</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Lilo es un cachorrito de 3 meses, desparasitado y listo para recibir su primera vacuna. Será de tamaño mediano y se entrega con castración obligatoria. Busca una familia responsable que le brinde amor y cuidados. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/machito.jpeg" alt="Machito">
+      <div class="pet-info">
+        <h3>Machito</h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño, futuramente mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Machito tiene 60 días, está desparasitado y será de tamaño mediano. Busca un hogar lleno de amor y cuidados donde pueda crecer feliz y sano. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="hembra"
+      data-age=""
+      data-shelter="rousi">
+      <img src="images/coca.jpeg" alt="Coca">
+      <div class="pet-info">
+        <h3>Coca</h3>
+        <ul>
+          <li><b>Edad:</b> -</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Coca es una perrita chiquita y miedosa que busca un hogar lleno de amor junto a Pascal, su inseparable compañero mediano a chico ❤️🐾</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age=""
+      data-shelter="rousi">
+      <img src="images/pascal.jpeg" alt="Pascal">
+      <div class="pet-info">
+        <h3>Pascal</h3>
+        <ul>
+          <li><b>Edad:</b> -</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano a chico</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Pascal es un perrito mediano a chico que busca un hogar lleno de amor. Se entrega junto a Coca, su inseparable compañera ❤️🐾</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="rousi">
+      <img src="images/petra.jpeg" alt="Petra">
+      <div class="pet-info">
+        <h3>Petra</h3>
+        <ul>
+          <li><b>Edad:</b> 2/3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Petra es una perrita joven de 2 a 3 años, castrada y vacunada. Es una hermosa cruza con galgo, llena de energía y personalidad. Como hembra alfa, necesita un hogar que le brinde cariño pero también límites claros. Es ideal para una familia activa que disfrute de paseos y juegos, y que le dé el espacio para desplegar toda su vitalidad. 🐾✨</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="Hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/sol.jpeg" alt="Sol">
+      <div class="pet-info">
+        <h3>Sol</h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Sol es una cachorrita de unos 50 días, criada también a mamadera desde sus primeros días de vida. Alegre, mañosa y llena de ternura, ya tiene su primera vacuna y sueña con una familia que la reciba con mucho amor. 🐶☀️. ✨ Sol y Luna se entregan juntas en adopción, con compromiso de adopción responsable.</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/luna.jpeg" alt="Luna">
+      <div class="pet-info">
+        <h3>Luna</h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Luna, la más oscurita, tiene unos 50 días y fue criada a mamadera desde muy chiquita. Es súper mañosa, dulce y ya recibió su primera vacuna. Busca un hogar donde la sigan mimando y acompañando mientras crece. 🐶🌙 ✨ Sol y Luna se entregan juntas en adopción, con compromiso de adopción responsable.</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="4"
+      data-shelter="rousi">
+      <img src="images/kimey.jpeg" alt="Kimey">
+      <div class="pet-info">
+        <h3>Kimey</h3>
+        <ul>
+          <li><b>Edad:</b> 4/5 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Kimey es una perrita de 4 a 5 años, castrada y desparasitada. De tamaño mediano a chico, tiene un excelente carácter: es dulce, equilibrada y muy compañera. Está lista para encontrar una familia que la ame y la cuide como merece. 🐾💖</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_1.jpeg" alt="1">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Este machito tiene apenas 60 días y ya busca un hogar lleno de amor. Lo rescataron de una finca junto a sus hermanitos, por lo que no conocemos a sus papás, pero el veterinario nos dijo que será de tamaño mediano. Está desparasitado y listo para comenzar su vida rodeado de cariño en una familia que lo cuide. 🐶✨💙</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+     <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_2.jpeg" alt="2">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Esta cachorrita hembra tiene 60 días, fue rescatada de una finca y ya está desparasitada. Es pequeña, dulce y está lista para crecer rodeada de amor en una familia responsable que le brinde todos los cuidados que merece. 🐶💖</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_3.jpeg" alt="3">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> mediano a chico</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Este machito de unos 60 días fue rescatado de una finca junto a sus hermanitos. Será de tamaño mediano a chico y ya está listo para empezar a crecer en un hogar lleno de amor. Cariñoso y tierno, espera una familia que lo acompañe en esta nueva etapa de su vida. Desparasitado y entregado con promesa de castración. 🐶💙</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_4.jpeg" alt="4">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Esta pequeña es una cachorrita hembra de 60 días, rescatada de una finca. Será de tamaño mediano cuando crezca. Alegre y llena de ternura, está lista para encontrar una familia que la acompañe y le dé mucho amor desde sus primeros pasos. Desparasitada y entregada con promesa de castración. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_5.jpeg" alt="5">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Esta cachorrita de 60 días fue rescatada de una finca junto a sus hermanitos. Es una hembrita dulce y curiosa, lista para crecer rodeada de amor y cuidados. 🐶💖. Ideal para una familia que quiera darle un hogar seguro y lleno de cariño. Desparasitada y entregada con promesa de castración.</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_6.jpeg" alt="6">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Bebita hembra de 60 días, rescatada de la misma finca. Será de tamaño mediano, es dulce y curiosa. Lista para encontrar una familia que la quiera para siempre. Desparasitada y entregada con promesa de castración. 🐶💛</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_7.jpeg" alt="7">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano a chico</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Esta pequeña hembrita, de tamaño mediano a chico y con apenas 60 días, busca un hogar lleno de cariño. Es dulce, curiosa y está lista para recibir amor, rescatada de una finca. Desparasitada y entregada con promesa de castración.🐾💛</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_8.jpeg" alt="8">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Esta pequeñita es una hembrita mediana de 60 dias rescatada de una finca. Es tierna, juguetona y está buscando una familia que la cuide y la llene de amor. Desparasitada y entregada con promesa de castración.🐾💛</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="0,16"
+      data-shelter="rousi">
+      <img src="images/perro_sin_nombre_9.jpeg" alt="9">
+      <div class="pet-info">
+        <h3></h3>
+        <ul>
+          <li><b>Edad:</b> 2 meses</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Esta pequeña es una hembrita mediana de 60 días, desparasitada y llena de ternura. Busca un hogar donde la quieran, la cuiden y le enseñen todo lo lindo de la vida. Entregada con promesa de castración.🐾💛</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size=""
+      data-sex="hembra"
+      data-age="2"
+      data-shelter="rousi">
+      <img src="images/lulu.jpeg" alt="Lulu">
+      <div class="pet-info">
+        <h3>Lulu</h3>
+        <ul>
+          <li><b>Edad:</b> 2/3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> FUNDACION HOGAR ROUSI</li>
+        </ul>
+        <p>Lulu es una perrita de 2-3 años, castrada, con vacunas al día y desparasitada. Es muy buena con las personas, pero no se lleva con otros perros. Busca un hogar donde pueda recibir cariño y sentirse segura. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492612125472" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="gato"
+      data-size=""
+      data-sex="hembra"
+      data-age="2"
+      data-shelter="gatitosmdz">
+      <img src="images/azucar.jpeg" alt="Azucar">
+      <div class="pet-info">
+        <h3>Azucar</h3>
+        <ul>
+          <li><b>Edad:</b> 2 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> -</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> Gatitos en adopción Mendoza</li>
+        </ul>
+        <p>Azúcar es una gatita joven, rescatada de una acequia. Tiene dos añitos, está castrada y con todas sus vacunas al día. Es muy dulce y compañera, y espera una familia que le dé el cariño que merece 🐾🤍</p>
+      </div>
+      <a href="https://wa.me/5491161315901" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/felicitas.jpeg" alt="Felicitas">
+      <div class="pet-info">
+        <h3>Felicitas</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Felicitas es una perrita de tamaño mediano, muy amorosa y sociable con todos. Está castrada y tiene sus vacunas al día. Su particularidad es que le tiene pánico a las correas, pero eso no le quita dulzura ni ganas de recibir cariño. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+  
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/juno.jpeg" alt="Juno">
+      <div class="pet-info">
+        <h3>Juno</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Juno es un perrito macho, muy sociable tanto con personas como con otros perros. Está castrado y tiene todas sus vacunas al día. Busca un hogar donde pueda compartir su cariño y alegría. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="5"
+      data-shelter="refugiodiego">
+      <img src="images/sanson.jpeg" alt="Sanson">
+      <div class="pet-info">
+        <h3>Sanson</h3>
+        <ul>
+          <li><b>Edad:</b> 5 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Sansón es un perrito macho de tamaño mediano, muy cariñoso, activo y sociable tanto con personas como con otros perros. Está castrado y con sus vacunas al día. Busca un hogar donde pueda dar y recibir mucho amor. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+   <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="2.5"
+      data-shelter="refugiodiego">
+      <img src="images/libia.jpeg" alt="Libia">
+      <div class="pet-info">
+        <h3>Libia</h3>
+        <ul>
+          <li><b>Edad:</b> 2 años y medio</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Libia es una perrita de 2 años y medio, de tamaño mediano. Es tímida y tranquila, pero muy cariñosa. Está castrada y tiene todas sus vacunas al día. Busca un hogar paciente y amoroso donde pueda sentirse segura y feliz. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="6"
+      data-shelter="refugiodiego">
+      <img src="images/india_pei.jpeg" alt="India Pei">
+      <div class="pet-info">
+        <h3>India Pei</h3>
+        <ul>
+          <li><b>Edad:</b> 6 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>India Pei es una perrita de 6 años, de tamaño mediano, sociable, tranquila y muy cariñosa. Está castrada y con sus vacunas al día. Busca un hogar donde pueda compartir todo su amor y dulzura. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/pascal_2.jpeg" alt="Pascal">
+      <div class="pet-info">
+        <h3>Pascal</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano a chico</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Pascal es un perrito de 7 años, de tamaño mediano a chico. Es tímido, tranquilo e ideal para la compañía de personas mayores. Está castrado y con sus vacunas al día. Busca un hogar donde pueda sentirse seguro y querido. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+    <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="8"
+      data-shelter="refugiodiego">
+      <img src="images/pedro.jpeg" alt="Pedro">
+      <div class="pet-info">
+        <h3>Pedro</h3>
+        <ul>
+          <li><b>Edad:</b> 8 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Pedro es un perrito de 8 años, de tamaño mediano, muy sociable, cariñoso e hiperactivo. Tiene espíritu escapista, por lo que necesita un hogar seguro y con mucha atención. Está castrado y con todas sus vacunas al día. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+  
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/aime.jpeg" alt="Aime">
+      <div class="pet-info">
+        <h3>Aimé</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Esta perrita de 3 años, tamaño mediano, es sociable, tranquila y muy cariñosa. Fue una gran sobreviviente del parvovirus. Está castrada y con todas sus vacunas al día. Busca un hogar donde la llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+     <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="2.5"
+      data-shelter="refugiodiego">
+      <img src="images/cloe.jpeg" alt="Cloe">
+      <div class="pet-info">
+        <h3>Cloe</h3>
+        <ul>
+          <li><b>Edad:</b> 2 años y medio</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Esta perrita de 2 años y medio, tamaño mediano, es sociable con perros y humanos, tranquila y muy cariñosa. Está castrada y con todas sus vacunas al día. Busca un hogar donde la llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="macho"
+      data-age="8"
+      data-shelter="refugiodiego">
+      <img src="images/tincho.jpeg" alt="Tincho">
+      <div class="pet-info">
+        <h3>Tincho</h3>
+        <ul>
+          <li><b>Edad:</b> 8 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Tincho es un perrito de 8 años, de tamaño grande. Es sociable con todos, aunque al principio puede mostrarse un poco tímido. Activo y lleno de energía, está castrado y con sus vacunas al día. Busca un hogar donde pueda compartir su alegría y cariño. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/bruno.jpeg" alt="Bruno">
+      <div class="pet-info">
+        <h3>Bruno</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Bruno es un perrito de 7 años, de tamaño mediano. Es muy compañero, sociable con todos, aunque puede ser un poco celoso. Está castrado y con las vacunas al día. Busca un hogar donde lo quieran y valoren su lealtad. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="8"
+      data-shelter="refugiodiego">
+      <img src="images/tadeo.jpeg" alt="Tadeo">
+      <div class="pet-info">
+        <h3>Tadeo</h3>
+        <ul>
+          <li><b>Edad:</b> 8 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Tadeo es un perrito de 8 años, de tamaño mediano. Es tranquilo y solitario, ideal para brindar compañía a personas mayores. Está castrado y con sus vacunas al día. Busca un hogar sereno donde pueda sentirse querido y cuidado. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="hembra"
+      data-age="6"
+      data-shelter="refugiodiego">
+      <img src="images/lara.jpeg" alt="Lara">
+      <div class="pet-info">
+        <h3>Lara</h3>
+        <ul>
+          <li><b>Edad:</b> 6 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Lara es una perrita de 6 años, de tamaño grande. Es sociable, aunque muy tímida y tranquila. Está castrada y con las vacunas al día. Busca un hogar paciente y amoroso donde pueda sentirse segura y cuidada. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="macho"
+      data-age="8"
+      data-shelter="refugiodiego">
+      <img src="images/nelson.jpeg" alt="Nelson">
+      <div class="pet-info">
+        <h3>Nelson</h3>
+        <ul>
+          <li><b>Edad:</b> 8 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Este perrito de 8 años, tamaño grande y gordito, es poco sociable y prefiere la tranquilidad, por lo que es ideal como perro único. Está castrado y con las vacunas al día. Busca un hogar donde lo respeten y lo quieran tal como es. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/camila.jpeg" alt="Camila">
+      <div class="pet-info">
+        <h3>Camila</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Camila es una perrita de 3 años, de tamaño pequeño. Es sociable con otros perros, aunque tímida y algo solitaria. Está castrada y con las vacunas al día. Busca un hogar tranquilo donde pueda sentirse segura y querida. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="5"
+      data-shelter="refugiodiego">
+      <img src="images/charly.jpeg" alt="Charly">
+      <div class="pet-info">
+        <h3>Charly</h3>
+        <ul>
+          <li><b>Edad:</b> 5 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Charly es un perrito de 5 años, de tamaño pequeño. Es sociable con todos, muy cariñoso y compañero. Está castrado y con todas sus vacunas al día. Busca un hogar donde pueda brindar y recibir mucho amor. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="11"
+      data-shelter="refugiodiego">
+      <img src="images/eli.jpeg" alt="Eli">
+      <div class="pet-info">
+        <h3>Eli</h3>
+        <ul>
+          <li><b>Edad:</b> 11 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano a Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Eli es una perrita de 11 años, de tamaño mediano a grande. Es muy tranquila y sociable con otros perros, aunque no con gatos. Está castrada y con las vacunas al día. Busca un hogar sereno donde pueda sentirse cuidada y querida. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="hembra"
+      data-age="4"
+      data-shelter="refugiodiego">
+      <img src="images/karen.jpeg" alt="Karen">
+      <div class="pet-info">
+        <h3>Karen</h3>
+        <ul>
+          <li><b>Edad:</b> 4 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Karen es una perrita de 4 años, de tamaño pequeño. Es tranquila, tímida y muy sociable con todos. Está castrada y con las vacunas al día. Busca un hogar lleno de amor donde pueda sentirse segura y acompañada. 🐾💕</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="3.5"
+      data-shelter="refugiodiego">
+      <img src="images/kenia.jpeg" alt="Kenia">
+      <div class="pet-info">
+        <h3>Kenia</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años y medio</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Kenia es una perrita de 3 años y medio, de tamaño mediano. Es sociable y cariñosa, aunque al principio puede mostrarse tímida; tiene carácter y mucha dulzura para dar. Está castrada y con sus vacunas al día. Busca un hogar responsable y amoroso. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="11"
+      data-shelter="refugiodiego">
+      <img src="images/toby.jpeg" alt="Toby">
+      <div class="pet-info">
+        <h3>Toby</h3>
+        <ul>
+          <li><b>Edad:</b> 11 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Toby, un perrito de 11 años y tamaño mediano, está castrado y con todas sus vacunas al día. Se lleva muy bien con perritas hembras, aunque lo ideal sería que fuera el único perro del hogar. Es un compañero tranquilo que merece encontrar una familia que le dé todo el amor y cuidados que necesita en esta etapa de su vida. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="2"
+      data-shelter="refugiodiego">
+      <img src="images/barney.jpeg" alt="Barney">
+      <div class="pet-info">
+        <h3>Barney</h3>
+        <ul>
+          <li><b>Edad:</b> 2 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Barney es un perrito de 2 años, tamaño mediano y de aspecto morrudo que enamora a primera vista. 🐶💙 Es muy sociable tanto con personas como con otros perros. Está castrado y tiene todas sus vacunas al día. Busca un hogar donde pueda compartir su alegría y recibir mucho cariño. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="4"
+      data-shelter="refugiodiego">
+      <img src="images/jacinto.jpeg" alt="Jacinto">
+      <div class="pet-info">
+        <h3>Jacinto</h3>
+        <ul>
+          <li><b>Edad:</b> 4 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Jacinto es un perrito de 4 años y tamaño mediano. 🐶✨ Muy cariñoso y sociable, disfruta compartir con personas y con otros perros. Está castrado y tiene todas sus vacunas al día. Ahora solo espera un hogar donde lo llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/angie.jpeg" alt="Angie">
+      <div class="pet-info">
+        <h3>Angie</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Angie es una perrita de 3 años y tamaño mediano. 🌸🐶 Muy sociable, compañera e hiperactiva, siempre lista para compartir juegos y aventuras. Está castrada y tiene todas sus vacunas al día. Busca una familia que la quiera y disfrute de su energía y cariño. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/marci.jpeg" alt="Marci">
+      <div class="pet-info">
+        <h3>Marci</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Marci es una perrita de 3 años y tamaño mediano. 🐶💖 Muy sociable con todos, un poquito mañosa pero sumamente amorosa. Está castrada y con todas sus vacunas al día. Sueña con encontrar un hogar donde le den el amor y la paciencia que merece. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="macho"
+      data-age="9"
+      data-shelter="refugiodiego">
+      <img src="images/mario.jpeg" alt="Mario">
+      <div class="pet-info">
+        <h3>Mario</h3>
+        <ul>
+          <li><b>Edad:</b> 9 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Mario es un perrito de 9 años y tamaño grande. 🐶💙 Sociable, muy amoroso y tranquilo, es el compañero ideal para compartir momentos de calma y cariño. Está castrado y con todas sus vacunas al día. Solo espera una familia que lo reciba con amor. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/meche.jpeg" alt="Meche">
+      <div class="pet-info">
+        <h3>Meche</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Meche es una perrita de 7 años y tamaño mediano. 🐶💖 Muy sociable, amorosa y compañera, siempre lista para dar y recibir cariño. Está castrada y con todas sus vacunas al día. Busca un hogar donde pueda sentirse parte de la familia y ser feliz. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/meru.jpeg" alt="Meru">
+      <div class="pet-info">
+        <h3>Meru</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Meru es una perrita de 7 años y tamaño mediano. 🐶✨ Muy sociable, amorosa y compañera, además de tener una personalidad de perra alfa que la hace segura y especial. Está castrada y con todas sus vacunas al día. Busca un hogar donde la quieran tal cual es y la llenen de amor. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/miguelito.jpeg" alt="Miguelito">
+      <div class="pet-info">
+        <h3>Miguelito</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Miguelito es un perrito de 3 años y tamaño pequeño. 🐶💙 Muy sociable y amoroso con todos, lleva consigo un pequeño tic producto del moquillo, pero eso no le impide disfrutar de la vida ni dar cariño. Está castrado y con todas sus vacunas al día. Busca una familia que lo acepte tal cual es y lo llene de amor. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/murci.jpeg" alt="Murci">
+      <div class="pet-info">
+        <h3>Murci</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Murci es un perrito de 3 años y tamaño pequeño. 🐶💖 Castrado, sociable, amoroso y un poquito tímido, conquista a quien lo conoce con su dulzura. Tiene todas sus vacunas al día y sueña con encontrar un hogar donde se sienta seguro y querido. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/oreo.jpeg" alt="Oreo">
+      <div class="pet-info">
+        <h3>Oreo</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Esta perrita de 3 años y tamaño mediano 🐶💖 es sociable, un poquito tímida, pero muy compañera. Está castrada y tiene todas sus vacunas al día. Busca un hogar donde la llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/luna_2.jpeg" alt="Luna">
+      <div class="pet-info">
+        <h3>Luna</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Luna es una perrita de 7 años y tamaño mediano. 🐶✨ Sociable con todos, independiente y un poquito celosa, tiene una personalidad única que la hace especial. Está castrada y con todas sus vacunas al día. Busca un hogar donde la quieran tal como es y le den mucho amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="13"
+      data-shelter="refugiodiego">
+      <img src="images/mozart.jpeg" alt="Mozart">
+      <div class="pet-info">
+        <h3>Mozart</h3>
+        <ul>
+          <li><b>Edad:</b> 13 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Mozart es un perrito de 13 años y tamaño mediano. 🐶💖 Muy sociable y amoroso con todos, es un compañero que derrocha cariño a pesar de tener un problema de corazón. Está castrado y con todas sus vacunas al día. Busca un hogar tranquilo donde lo cuiden y le brinden mucho amor. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="hembra"
+      data-age="7"
+      data-shelter="refugiodiego">
+      <img src="images/leona.jpeg" alt="Leona">
+      <div class="pet-info">
+        <h3>Leona</h3>
+        <ul>
+          <li><b>Edad:</b> 7 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Leona es una perrita de 7 años y tamaño grande. 🐶✨ Morruda, sociable, hiperactiva y aventurera, siempre lista para jugar y descubrir cosas nuevas. Está castrada y con todas sus vacunas al día. Busca un hogar que acompañe su energía y le brinde mucho amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="hembra"
+      data-age="11"
+      data-shelter="refugiodiego">
+      <img src="images/anita.jpeg" alt="Anita">
+      <div class="pet-info">
+        <h3>Anita</h3>
+        <ul>
+          <li><b>Edad:</b> 11 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Anita es una perrita de 11 años y tamaño grande. 🐶💖 Muy sociable, tranquila y súper cariñosa, es la compañera ideal para disfrutar de momentos de calma y afecto. Está castrada y con todas sus vacunas al día. Busca un hogar donde la llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="hembra"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/boni.jpeg" alt="Boni">
+      <div class="pet-info">
+        <h3>Boni</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Boni es una perrita de 3 años y tamaño mediano. 🐶💖 Muy sociable, hiperactiva, compañera y amorosa, siempre lista para jugar y dar cariño. Está castrada y con todas sus vacunas al día. Busca un hogar donde la llenen de amor y cuidados. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="3"
+      data-shelter="refugiodiego">
+      <img src="images/jack.jpeg" alt="Jack">
+      <div class="pet-info">
+        <h3>Jack</h3>
+        <ul>
+          <li><b>Edad:</b> 3 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Jack es un perrito de 3 años y tamaño mediano. 🐶💙 Sociable, tranquilo y muy cariñoso, es un compañero ideal para compartir momentos de calma y cariño. Está castrado y con todas sus vacunas al día. Busca un hogar donde lo quieran y cuiden con amor. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="grande"
+      data-sex="hembra"
+      data-age="9"
+      data-shelter="refugiodiego">
+      <img src="images/gringa.jpeg" alt="Gringa">
+      <div class="pet-info">
+        <h3>Gringa</h3>
+        <ul>
+          <li><b>Edad:</b> 9 años</li>
+          <li><b>Sexo:</b> Hembra</li>
+          <li><b>Tamaño:</b> Grande</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Gringa es una perrita de 9 años y tamaño grande. 🐶💖 Sociable con otros perros, aunque un poco solitaria, es tranquila y serena. Está castrada y con todas sus vacunas al día. Busca un hogar donde la quieran respetando su espacio y le brinden mucho cariño. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="2"
+      data-shelter="refugiodiego">
+      <img src="images/hutch.jpeg" alt="Hutch">
+      <div class="pet-info">
+        <h3>Hutch</h3>
+        <ul>
+          <li><b>Edad:</b> 2 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Hutch es un perrito de 2 años y tamaño mediano. 🐶💙 Tímido y solitario, es ideal para un hogar donde pueda ser la única mascota y recibir toda la atención y cariño. Está castrado y con todas sus vacunas al día. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="pequeño"
+      data-sex="macho"
+      data-age="5"
+      data-shelter="refugiodiego">
+      <img src="images/julio.jpeg" alt="Julio">
+      <div class="pet-info">
+        <h3>Julio</h3>
+        <ul>
+          <li><b>Edad:</b> 5 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Pequeño</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Julio es un perrito de 5 años y tamaño pequeño. 🐶💖 Hiperactivo, celoso y muy amoroso, es ideal para un hogar donde sea el único perro y reciba todo el cariño que merece. Está castrado y con todas sus vacunas al día. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  <div class="pet-card"
+      data-animal="perro"
+      data-size="mediano"
+      data-sex="macho"
+      data-age="2"
+      data-shelter="refugiodiego">
+      <img src="images/starsky.jpeg" alt="Starsky">
+      <div class="pet-info">
+        <h3>Starsky</h3>
+        <ul>
+          <li><b>Edad:</b> 2 años</li>
+          <li><b>Sexo:</b> Macho</li>
+          <li><b>Tamaño:</b> Mediano</li>
+          <li><b>Peso:</b> - Kg</li>
+          <li><b>Ubicación:</b> Mendoza</li>
+          <li><b>Refugio:</b> El Refugio de Diego</li>
+        </ul>
+        <p>Starsky es un perrito de 2 años y tamaño mediano. 🐶💖 Tímido y un poco solitario, pero muy cariñoso, busca un hogar donde pueda sentirse seguro y recibir todo el amor que merece. Está castrado y con todas sus vacunas al día. 🐾❤️</p>
+      </div>
+      <a href="https://wa.me/5492615591959" target="_blank" class="btn-adoptar">¡Consultá por mí!</a>
+   </div>
+
+  </section>
+  <!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
+    <h3>HUELLA CONSCIENTE</h3>
+  </div>
+
+  <div class="footer-links">
+    <div>
+      <h4>Encontranos:</h4>
+      <a href="https://www.tiktok.com/@huellaconsciente.oficial"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="Anunciantes.html">Anunciantes</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="adoptar.html">Adopciones</a></li>
+        <li><a href="donaciones.html">Donaciones</a></li>
+        <li><a href="refugios.html">Refugios</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copy">
+    © 2025 Huella Consciente - Todos los derechos reservados
+  </div>
+</footer>
+<script src="js/menu.js"></script>
+<script src="js/adoptar.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refugios - Huella Consciente</title>
+  <link rel="icon" href="images/Isotipo_sin_fondo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- Header -->
+  <!-- Menú Desktop -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Isotipo_sin_fondo.png" alt="Huella Consciente" />
+        <span>Huella Consciente</span>
+      </a>
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="adoptar.html">Adoptá</a>
+        <a href="Anunciantes.html">Aliados Estratégicos</a>
+        <a href="refugios.html">Refugios</a>
+        <a href="contacto.html">Contacto</a>
+      <button class="donar-btn"><a href="donaciones.html">Donar 🤎</a></button>
+    </nav>
+    <span class="hamburger" onclick="openNav()">☰</span>
+  </header>
+
+  <!-- Menú overlay -->
+  <div id="myNav" class="overlay">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+      <a href="index.html">Inicio</a>
+      <a href="adoptar.html">Adoptá</a>
+      <a href="Anunciantes.html">Aliados Estratégicos</a>
+      <a href="refugios.html">Refugios</a>
+      <a href="contacto.html">Contacto</a>
+    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
+  </div>
+
+  <script src="js/menu.js"></script>
+
+  <!-- Sección Refugios -->
+<section class="refugios">
+  <h2>Refugios Amigos</h2>
+  <p>Conoce a los refugios que trabajan día a día para darles una segunda oportunidad a nuestros peludos.</p>
+  
+  <div class="grid">
+    <div class="card">
+      <img src="images/refugio1.jpeg" alt="La Casita de Lula" class="refugio-img">
+      <h3>La Casita de Lula</h3>
+      <p>❤️🐾 ONG - Refugio, sin fines de lucro.📍Guaymallén, Mendoza - Argentina.🐾 Más de 250 perritos</p>
+      
+      <div class="social-links">
+        <a href="https://www.instagram.com/casitadelularefugio/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/lacasitadelularefugio/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@casitadelula" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <a href="donaciones.html" class="btn-donar">Donar</a>
+      </div>
+    <div class="card">
+      <img src="images/refugio2.jpeg" alt="FUNDACION HOGAR ROUSI" class="refugio-img">
+      <h3>FUNDACION HOGAR ROUSI</h3>
+      <p>🐾 Albergamos a más de 70 animales! ❤️ Transitamos, recuperamos y conseguimos nuevas familias! 🇦🇷 Mendoza, Arg.</p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/fundacion.rousi/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/19h9wf2Gnq/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://wa.me/5492612125472" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://whatsapp.com/channel/0029Vb5to4cFXUuXsknsG41w" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      
+      <a href="donaciones.html" class="btn-donar">Donar</a>
+    </div>
+    <div class="card">
+      <img src="images/refugio3.jpeg" alt="FUNDACION HOGAR ROUSI" class="refugio-img">
+      <h3>Gatitos en adopción Mendoza</h3>
+      <p>Buscamos adopción responsable para los gatitos que llegan a nuestras manos, tu colaboracion siempre suma </p>
+
+      <div class="social-links">
+        <a href="https://www.instagram.com/gatitos.adopcionmendoza/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
+    <h3>HUELLA CONSCIENTE</h3>
+  </div>
+
+  <div class="footer-links">
+    <div>
+      <h4>Encontranos:</h4>
+      <a href="https://www.tiktok.com/@huellaconsciente.oficial"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="Anunciantes.html">Anunciantes</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="adoptar.html">Adopciones</a></li>
+        <li><a href="donaciones.html">Donaciones</a></li>
+        <li><a href="refugios.html">Refugios</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copy">
+    © 2025 Huella Consciente - Todos los derechos reservados
+  </div>
+</footer>
+</body>
+</html>

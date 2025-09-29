@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huella Consciente</title>
+  <link rel="icon" href="images/Isotipo_sin_fondo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <!-- Menú Desktop -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Isotipo_sin_fondo.png" alt="Huella Consciente" />
+        <span>Huella Consciente</span>
+      </a>
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="adoptar.html">Adoptá</a>
+        <a href="Anunciantes.html">Aliados Estratégicos</a>
+        <a href="refugios.html">Refugios</a>
+        <a href="contacto.html">Contacto</a>
+      <button class="donar-btn"><a href="donaciones.html">Donar 🤎</a></button>
+    </nav>
+    <span class="hamburger" onclick="openNav()">☰</span>
+  </header>
+
+  <!-- Menú overlay -->
+  <div id="myNav" class="overlay">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+      <a href="index.html">Inicio</a>
+      <a href="adoptar.html">Adoptá</a>
+      <a href="Anunciantes.html">Aliados Estratégicos</a>
+      <a href="refugios.html">Refugios</a>
+      <a href="contacto.html">Contacto</a>
+    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
+  </div>
+
+  <script src="js/menu.js"></script>
+
+   <!-- HERO / GIROIMAGE -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('images/index/hero/hero_1.png');"></div>
+      <div class="slide" style="background-image: url('images/index/hero/hero_2.jpeg');"></div>
+      <div class="slide" style="background-image: url('images/index/hero/hero_3.jpeg');"></div>
+    </div>
+    <div class="hero-content">
+      <h1>Un puente entre refugios y familias</h1>
+      <p>En Argentina hay más de <strong>20 millones</strong> de animales en situación de calle y más de <strong>5000 en el Gran Mendoza</strong>. Tu ayuda puede cambiar su destino 🐾</p>
+      <a href="adoptar.html" class="btn-hero">Adoptar ahora</a>
+    </div>
+  </section>
+
+  <!-- Datos de impacto -->
+  <section class="impacto">
+    <h2>Nuestra realidad hoy</h2>
+    <div class="impacto-grid">
+      <div class="impacto-card">
+        <h3>+20M</h3>
+        <p>Animales en situación de calle en Argentina</p>
+      </div>
+      <div class="impacto-card">
+        <h3>+5000</h3>
+        <p>Animales sin hogar en el Gran Mendoza</p>
+      </div>
+      <div class="impacto-card">
+        <h3>1 solo gesto</h3>
+        <p>Adoptar, donar o difundir puede salvar vidas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="video-section">
+    <h2>Conocé más sobre nuestro proyecto</h2>
+    <iframe src="https://www.youtube.com/embed/nUbY8LHEuL0?si=-EiIDojFxSnCNnVZ" 
+            title="Video explicativo Huella Consciente"
+            allowfullscreen></iframe>
+  </section>
+
+  <!-- Aporte -->
+  <section class="aporte">
+    <div class="aporte-text">
+      <h2>Tu aporte hace la diferencia</h2>
+      <p>Con tu ayuda podemos darle una segunda oportunidad a muchos animales. Cada colaboración se transforma en alimento, vacunas, castraciones, tránsito y medicamentos.</p>
+      <div class="aporte-list">
+        <span>🐾 Alimento</span>
+        <span>🐾 Vacunas</span>
+        <span>🐾 Castraciones</span>
+        <span>🐾 Tránsito</span>
+        <span>🐾 Medicamentos</span>
+      </div>
+    </div>
+    <img src="images/index_aporte.jpeg" alt="Animales cuidados">
+  </section>
+
+  <!-- Integrantes -->
+  <section class="integrantes">
+    <img src="images/index_equipo.jpeg" alt="Equipo Huella Consciente">
+    <div class="integrantes-text">
+      <h2>Quiénes lo integramos</h2>
+      <p>Somos estudiantes de la <a href="https://mzapata.uncuyo.edu.ar/"><strong>Escuela de Comercio Martín Zapata</strong></a> de Mendoza. Lo que nos une es el compromiso con la adopción responsable y el bienestar animal.</p>
+    </div>
+  </section>
+
+  <section class="video-section">
+
+  </section>
+
+
+<!-- Refugios -->
+<section class="refugios-carousel">
+  <h2>Refugios con los que trabajamos</h2>
+  <div class="carousel-wrapper">
+    <div class="carousel-track refugios-track">
+      <div class="carousel-item"><img src="images/refugio1.jpeg" alt="Refugio 1"></div>
+      <div class="carousel-item"><img src="images/refugio2.jpeg" alt="Refugio 2"></div>
+      <div class="carousel-item"><img src="images/refugio3.jpeg" alt="Refugio 3"></div>
+      <div class="carousel-item"><img src="images/refugio4.png" alt="Refugio 4"></div>
+      <!-- Agrega más refugios duplicando este bloque -->
+    </div>
+  </div>
+</section>
+
+<!-- Prensa / Diarios -->
+<section class="prensa">
+  <h2>Huella Consciente en los medios</h2>
+  <div class="prensa-grid">
+    <a href="https://www.mdzol.com/sociedad/jovenes-mendocinos-crearon-una-web-fomentar-la-adopcion-responsable-animales-n1333779" target="_blank" class="carousel-item">
+      <img src="images/diarios/mdzol.png" alt="Mdzol">
+    </a>
+    <a href="https://ecocuyo.com/nota/149063/emprende-u-conoce-los-ganadores-del-concurso-emprendedor-mas-federal-del-pais/" target="_blank" class="carousel-item">
+      <img src="images/diarios/ecocuyo.jpeg" alt="Ecocuyo">
+    </a>
+    <!-- Agrega más diarios aquí -->
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<section class="reconocimientos">
+  <!-- Desktop slider -->
+  <div class="slider desktop-only">
+    <div class="slide" style="background-image: url('images/desktop_emprendeu_1.jpg');"></div>
+    <div class="slide" style="background-image: url('images/desktop_emprendeu_2.jpg');"></div>
+    <div class="overlay-text desktop-text">
+      <h2>Reconocimientos</h2>
+    <p>Huella Consciente fue premiada en el certamen <strong>Emprende U 2025</strong>, obteniendo el <strong>segundo puesto a nivel nacional</strong> entre más de 400 proyectos de todo el país.</p>
+    <p>Gracias a este logro recibimos <strong>$1.500.000</strong> para seguir desarrollando la plataforma, ampliar campañas de difusión y apoyar directamente a refugios y hogares de tránsito.</p>
+    <p>Nuestro objetivo es <strong>expandirnos y sumar más refugios y voluntarios en Mendoza</strong>, para mejorar la vida de cientos de animales.</p>
+    </div>
+  </div>
+
+  <!-- Mobile slider -->
+  <div class="slider mobile-only">
+    <div class="slide" style="background-image: url('images/mobile_emprendeu_1.jpg');"></div>
+    <div class="slide" style="background-image: url('images/mobile_emprendeu_2.jpg');"></div>
+    <div class="overlay-text mobile-text">
+      <h2>Reconocimientos</h2>
+    <p>Huella Consciente fue premiada en el certamen <strong>Emprende U 2025</strong>, obteniendo el <strong>segundo puesto a nivel nacional</strong> entre más de 400 proyectos de todo el país.</p>
+    <p>Gracias a este logro recibimos <strong>$1.500.000</strong> para seguir desarrollando la plataforma, ampliar campañas de difusión y apoyar directamente a refugios y hogares de tránsito.</p>
+    <p>Nuestro objetivo es <strong>expandirnos y sumar más refugios y voluntarios en Mendoza</strong>, para mejorar la vida de cientos de animales.</p>
+    </div>
+  </div>
+  <iframe src="https://www.youtube.com/embed/7Z3Xzy1_AMA?si=VajiZQSc6n6am0DM&amp;start=12320" title="Final EmprendeU" allowfullscreen></iframe>
+</section>
+
+  
+
+  <!-- CTA -->
+  <section class="colabora">
+    <h2>Colaborá y sé parte del cambio</h2>
+    <a href="donaciones.html">Donar ahora</a>
+  </section>
+
+  <!-- Consciencia -->
+  <section class="consciencia">
+    <h2>Un llamado a la consciencia</h2>
+    <p>Adoptar, difundir, donar o simplemente compartir el mensaje. Juntos podemos construir una sociedad más responsable y compasiva.</p>
+  </section>
+
+  <script src="js/slider.js"></script>
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
+    <h3>HUELLA CONSCIENTE</h3>
+  </div>
+
+  <div class="footer-links">
+    <div>
+      <h4>Encontranos:</h4>
+      <a href="https://www.tiktok.com/@huellaconsciente.oficial"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="Anunciantes.html">Anunciantes</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="adoptar.html">Adopciones</a></li>
+        <li><a href="donaciones.html">Donaciones</a></li>
+        <li><a href="refugios.html">Refugios</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copy">
+    © 2025 Huella Consciente - Todos los derechos reservados
+  </div>
+</footer>
+</body>
+</html>
