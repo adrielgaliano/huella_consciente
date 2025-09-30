@@ -2,10 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("pet-list");
   if (!container) return;
 
-  // Tomamos todas las cards (espera que estén en HTML o creadas dinámicamente)
   const cards = Array.from(container.querySelectorAll(".pet-card"));
 
-  // --- 0) Función utilitaria: calcular edad a partir de fecha de nacimiento ---
+  // --- Función para calcular edad desde fecha de nacimiento ---
   function ageTextFromBirth(birthISO) {
     if (!birthISO) return "";
     const birth = new Date(birthISO);
@@ -19,20 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${years} ${years === 1 ? "año" : "años"}`;
   }
 
-  // --- 1) Rellenar cada tarjeta: edad calculada y asegurar estructura ---
+  // --- 1) Rellenar tarjetas ---
   cards.forEach(card => {
-    // 1A) imagen: si no tiene clase 'card-img' la aplicamos (flexibilidad)
     const img = card.querySelector("img");
     if (img) img.classList.add("card-img");
 
-    // 1B) Edad desde data-birth o data-age fallback
-    const birth = card.dataset.birth;           // espera formato YYYY-MM-DD
+    const birth = card.dataset.birth;           
     const ageSpan = card.querySelector(".edad");
-    const numericAgeAttr = card.dataset.age;    // fallback si usás datos numéricos
+    const numericAgeAttr = card.dataset.age;    
     let txt = "";
     if (birth) {
       txt = ageTextFromBirth(birth);
-      // guarda también edad numérica (años decimales) si lo necesitás
       const diffYears = (Date.now() - new Date(birth).getTime()) / (1000*60*60*24*365);
       card.dataset._ageYears = diffYears;
     } else if (numericAgeAttr) {
@@ -45,8 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (ageSpan) ageSpan.textContent = txt;
 
-    // 1C) Si no hay <ul class="pet-attributes"> y hay una ul dentro de pet-info, 
-    //     convertimos su estilo para que use la rejilla (por compatibilidad)
     const petInfo = card.querySelector(".pet-info");
     if (petInfo) {
       const ul = petInfo.querySelector("ul");
@@ -56,17 +50,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- 2) POPULAR selects automáticamente (refugios, animal, tamaño, sexo) ---
+  // --- 2) Poblar selects ---
   const filterAnimal = document.getElementById("filterAnimal");
   const filterSize = document.getElementById("filterSize");
   const filterSex = document.getElementById("filterSex");
-  const filterAge = document.getElementById("filterAge"); // si usas categorías
+  const filterAge = document.getElementById("filterAge");
   const filterShelter = document.getElementById("filterShelter");
 
-  // Helper para poblar un select con array (incluye "Todos" como primera opción)
   function populateSelect(selectEl, values, defaultLabel = "Todos") {
     if (!selectEl) return;
-    // guarda la opción actualmente seleccionada si la hay
     const current = selectEl.value || "";
     selectEl.innerHTML = "";
     const optAll = document.createElement("option");
@@ -74,30 +66,32 @@ document.addEventListener("DOMContentLoaded", () => {
     optAll.textContent = defaultLabel;
     selectEl.appendChild(optAll);
 
-    values.sort((a,b)=> a.localeCompare(b, undefined, {sensitivity:'base'}))
-          .forEach(v => {
-      if (!v) return;
+    values.sort((a,b)=> a[1].localeCompare(b[1], undefined, {sensitivity:'base'}))
+          .forEach(([val,label]) => {
+      if (!val) return;
       const opt = document.createElement("option");
-      opt.value = v;
-      opt.textContent = v;
+      opt.value = val;
+      opt.textContent = label;
       selectEl.appendChild(opt);
     });
 
-    // restaurar selección si todavía existe
     if (current) {
       const found = Array.from(selectEl.options).find(o => o.value.toLowerCase() === current.toLowerCase());
       if (found) selectEl.value = found.value;
     }
   }
 
-  // Recopilar sets
-  const shelters = new Set();
+  const shelters = new Map();
   const animals = new Set();
   const sizes = new Set();
   const sexes = new Set();
 
   cards.forEach(c => {
-    if (c.dataset.shelter) shelters.add(c.dataset.shelter.trim());
+    if (c.dataset.shelter) {
+      const key = c.dataset.shelter.trim();
+      const label = c.dataset.shelterName || key;
+      shelters.set(key, label);
+    }
     if (c.dataset.animal) animals.add(capitalize(c.dataset.animal.trim()));
     if (c.dataset.size) sizes.add(capitalize(c.dataset.size.trim()));
     if (c.dataset.sex) sexes.add(capitalize(c.dataset.sex.trim()));
@@ -105,12 +99,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function capitalize(s){ return s ? s[0].toUpperCase() + s.slice(1) : s; }
 
-  populateSelect(filterShelter, Array.from(shelters), "Todos los refugios");
-  populateSelect(filterAnimal, Array.from(animals), "Todos");
-  populateSelect(filterSize, Array.from(sizes), "Tamaño");
-  populateSelect(filterSex, Array.from(sexes), "Sexo");
+  populateSelect(filterShelter, Array.from(shelters.entries()), "Todos los refugios");
+  populateSelect(filterAnimal, Array.from(animals).map(v=>[v,v]), "Todos");
+  populateSelect(filterSize, Array.from(sizes).map(v=>[v,v]), "Tamaño");
+  populateSelect(filterSex, Array.from(sexes).map(v=>[v,v]), "Sexo");
 
-  // --- 3) Buscador y eventos para filtros ---
+  // --- 3) Filtros ---
   const searchInput = document.getElementById("searchInput");
   if (searchInput) searchInput.addEventListener("input", filtrar);
 
@@ -118,18 +112,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (s) s.addEventListener("change", filtrar);
   });
 
-  // Toggle filtros (si usás el menú móvil)
   const toggleBtn = document.getElementById("toggleFilters");
   const filtersMenu = document.getElementById("filtersMenu");
-  if (toggleBtn && filtersMenu) toggleBtn.addEventListener("click", ()=> filtersMenu.classList.toggle("oculto"));
+  if (toggleBtn && filtersMenu) {
+    toggleBtn.addEventListener("click", () => {
+      filtersMenu.classList.toggle("oculto");
+    });
+  }
 
-  // --- 4) Función de filtrado ---
   function filtrar() {
     const searchTerm = (searchInput?.value || "").trim().toLowerCase();
     const animalVal = (filterAnimal?.value || "").trim().toLowerCase();
     const sizeVal = (filterSize?.value || "").trim().toLowerCase();
     const sexVal = (filterSex?.value || "").trim().toLowerCase();
-    const ageCat = (filterAge?.value || "").trim().toLowerCase(); // 'cachorro','adulto','senior' o ''
+    const ageCat = (filterAge?.value || "").trim().toLowerCase();
     const shelterVal = (filterShelter?.value || "").trim().toLowerCase();
 
     cards.forEach(card => {
@@ -139,39 +135,38 @@ document.addEventListener("DOMContentLoaded", () => {
       const dataSex = (card.dataset.sex || "").toLowerCase();
       const dataShelter = (card.dataset.shelter || "").toLowerCase();
 
-      // ENCUENTRA edad numérica (años) calculada previamente o en data
       let years = parseFloat(card.dataset._ageYears || card.dataset.age || "0");
       if (isNaN(years)) years = 0;
 
-      // categoría de edad (como en tu lógica)
       let computedAgeCat = "";
       if (years < 1) computedAgeCat = "cachorro";
       else if (years >= 1 && years <= 7) computedAgeCat = "adulto";
       else computedAgeCat = "senior";
 
       const matchSearch = !searchTerm || name.includes(searchTerm) || dataShelter.includes(searchTerm);
-      const matchAnimal = !animalVal || dataAnimal === animalVal || dataAnimal.includes(animalVal);
-      const matchSize = !sizeVal || dataSize === sizeVal || dataSize.includes(sizeVal);
-      const matchSex = !sexVal || dataSex === sexVal || dataSex.includes(sexVal);
+      const matchAnimal = !animalVal || dataAnimal.includes(animalVal);
+      const matchSize = !sizeVal || dataSize.includes(sizeVal);
+      const matchSex = !sexVal || dataSex.includes(sexVal);
       const matchAge = !ageCat || computedAgeCat === ageCat;
-      const matchShelter = !shelterVal || dataShelter === shelterVal || dataShelter.includes(shelterVal);
+      const matchShelter = !shelterVal || dataShelter === shelterVal;
 
       if (matchSearch && matchAnimal && matchSize && matchSex && matchAge && matchShelter) {
-        card.style.display = ""; // muestra
+        card.style.display = "";
       } else {
-        card.style.display = "none"; // oculta
+        card.style.display = "none";
       }
     });
   }
-// --- 5) Mezclar aleatoriamente las cards al cargar la página ---
-shuffleCards();
 
-function shuffleCards() {
-  for (let i = cards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    container.appendChild(cards[j]);
+  
+
+  // --- 4) Mezclar cards al cargar ---
+  shuffleCards();
+  function shuffleCards() {
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      container.appendChild(cards[j]);
+    }
   }
-}
-
-
+    
 });
