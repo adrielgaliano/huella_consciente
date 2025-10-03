@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FUNDACION HOGAR ROUSI - Huella Consciente</title>
+  <title>Donaciones - Fundación Hogar Rousi</title>
   <link rel="icon" href="images/Isotipo_sin_fondo.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Header -->
-  <!-- Menú Desktop -->
   <header>
     <div class="logo">
       <a href="index.html">
@@ -18,13 +17,12 @@
         <span>Huella Consciente</span>
       </a>
     </div>
-
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="adoptar.html">Adoptá</a>
-        <a href="Anunciantes.html">Aliados Estratégicos</a>
-        <a href="refugios.html">Refugios</a>
-        <a href="contacto.html">Contacto</a>
+      <a href="index.html">Inicio</a>
+      <a href="adoptar.html">Adoptá</a>
+      <a href="Anunciantes.html">Aliados Estratégicos</a>
+      <a href="refugios.html">Refugios</a>
+      <a href="contacto.html">Contacto</a>
       <button class="donar-btn"><a href="donaciones.html">Donar 🤎</a></button>
     </nav>
     <span class="hamburger" onclick="openNav()">☰</span>
@@ -40,107 +38,113 @@
       <a href="contacto.html">Contacto</a>
     <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
   </div>
-
   <script src="js/menu.js"></script>
 
-<!-- Sección principal -->
- <section class="donaciones">
-  <!-- Alias -->
-  <div class="donacion-card">
-    <img src="images/refugios/refugio2.jpeg" alt="FUNDACION HOGAR ROUSI">
-    <h3>FUNDACION HOGAR ROUSI</h3>
-    <h3>Alias de transferencia</h3>
-    <p><strong>Alias:</strong> Fundacionrousi</p>
+  <!-- Hero -->
+
+   <section class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('images/refugios/refugio2.jpeg');"></div>
+    </div>
+    <div class="hero-content">
+      <h1>🐾 Fundación Hogar Rousi</h1>
+      <p>Más de 70 animales encuentran refugio, alimento y amor gracias a tu ayuda. Cada donación nos permite seguir rescatando y recuperando vidas.</p>
+      <a href="#alias" class="btn-donar grande">Quiero donar ahora</a>
+    </div>
+  </section>
+
+  <!-- Datos bancarios -->
+  <section class="donacion-detalle">
+    <h2>💳 Donación directa</h2>
+    <div class="alias-box">
+      <p><b>Alias Mercado Pago:</b> <span id="alias">hogar.rousi.mp</span></p>
+      <button onclick="copiarAlias()">Copiar alias</button>
+    </div>
     <p><strong>Titular:</strong> Rosana Cuzzocrea</p>
-  </div>
+  </section>
 
-  <!-- Suscripciones -->
-  <div class="donacion-card">
-    <h3>Suscripciones mensuales</h3>
-    <p>Elegí el monto con el que querés colaborar todos los meses 💕</p>
-
-    <div class="refugios grid">
-        <!-- Card Aporte libre -->
-    <div class="card">
-      <h3>💖 Aporte libre</h3>
-      <p>Elegí el monto que vos quieras y colaborá como puedas 🫶</p>
-      <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0eac019452be38d50511" target="_blank" class="btn-donar">Aportar</a>
+  <!-- Planes de donación -->
+  <section id="planes" class="planes">
+    <h2>📦 Planes de ayuda mensual</h2>
+    <div class="grid">
+      <div class="plan">
+        <h3>Aporte libre</h3>
+        <p>Elegí el monto que vos quieras y colaborá como puedas</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0eac019452be38d50511" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>$500</h3>
+        <p>Alimento para un perrito por 2 días</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0ed0019452b9514204d8" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>$1000</h3>
+        <p>Vacunas o medicación básica</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0ed0019452bae7e204da" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan destacado">
+        <h3>$2000</h3>
+        <p>Cubre alimento de un cachorro por 1 semana</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0eac019452bc102d050e" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>$5000</h3>
+        <p>Ayuda a cubrir gastos veterinarios mayores</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0ed0019452bcb3d204dc" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>$10000</h3>
+        <p>Ayuda a cubrir diversos gastos del refugio</p>
+        <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0eac019452bd9cc20510" class="btn-donar">Elegir este plan</a>
+      </div>
     </div>
-
-    <!-- Card $500 -->
-    <div class="card">
-      <h3>$500</h3>
-      <p>Tu aporte ayuda con alimento y cuidados básicos 🐾</p>
-      <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0ed0019452b9514204d8" target="_blank" class="btn-donar">Suscribirme</a>
-    </div>
-
-    <!-- Card $1000 -->
-    <div class="card">
-      <h3>$1000</h3>
-      <p>Un granito de arena que suma mucho ❤️</p>
-      <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0ed0019452bae7e204da" target="_blank" class="btn-donar">Suscribirme</a>
-    </div>
-
-    <!-- Card $2000 -->
-    <div class="card">
-      <h3>$2000</h3>
-      <p>Colaborás con alimento, medicación y más 🐶🐱</p>
-      <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0eac019452bc102d050e" target="_blank" class="btn-donar">Suscribirme</a>
-    </div>
-
-    <!-- Card $5000 -->
-    <div class="card">
-      <h3>$5000</h3>
-      <p>Ayudás a que muchos más animales tengan una segunda oportunidad ✨</p>
-      <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0ed0019452bcb3d204dc" target="_blank" class="btn-donar">Suscribirme</a>
-    </div>
-
-    <!-- Card $10000 -->
-    <div class="card">
-      <h3>$10000</h3>
-      <p>Un aporte enorme que sostiene al refugio 💪</p>
-      <a href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c938084944b0eac019452bd9cc20510" target="_blank" class="btn-donar">Suscribirme</a>
-    </div>
-  </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
-<footer>
-  <div class="footer-logo">
-    <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
-    <h3>HUELLA CONSCIENTE</h3>
-  </div>
-
-  <div class="footer-links">
-    <div>
-      <h4>Encontranos:</h4>
-      <a href="https://www.tiktok.com/@huellaconsciente.oficial"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
+  <footer>
+    <div class="footer-logo">
+      <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
+      <h3>HUELLA CONSCIENTE</h3>
     </div>
 
-    <div>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="Anunciantes.html">Anunciantes</a></li>
-      </ul>
+    <div class="footer-links">
+      <div>
+        <h4>Encontranos:</h4>
+        <a href="https://www.tiktok.com/@huellaconsciente.oficial"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <div>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="Anunciantes.html">Anunciantes</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <ul>
+          <li><a href="adoptar.html">Adopciones</a></li>
+          <li><a href="donaciones.html">Donaciones</a></li>
+          <li><a href="refugios.html">Refugios</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div>
-      <ul>
-        <li><a href="adoptar.html">Adopciones</a></li>
-        <li><a href="donaciones.html">Donaciones</a></li>
-        <li><a href="refugios.html">Refugios</a></li>
-      </ul>
+    <div class="copy">
+      © 2025 Huella Consciente - Todos los derechos reservados
     </div>
-  </div>
+  </footer>
 
-  <div class="copy">
-    © 2025 Huella Consciente - Todos los derechos reservados
-  </div>
-</footer>
+  <!-- Script copiar alias -->
+  <script>
+    function copiarAlias() {
+      const alias = document.getElementById("alias").innerText;
+      navigator.clipboard.writeText(alias).then(() => {
+        alert("Alias copiado: " + alias);
+      });
+    }
+  </script>
 </body>
 </html>
