@@ -1573,3 +1573,65 @@ nav a:hover {
     object-fit: contain;
   }
 }
+
+  /*=============================*/
+ /* ====== Hero donaciones =====*/
+ /*=============================*/
+
+/* Alias box */
+.alias-box {
+  background: #f7f7f7;
+  border: 2px dashed #6b4e3d;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 500px;
+  margin: 20px auto;
+}
+.alias-box button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  background: #6b4e3d;
+  color: white;
+  cursor: pointer;
+}
+.alias-box button:hover {
+  background: #543d2f;
+}
+
+/* Planes */
+.planes .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+.plan {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.plan.destacado {
+  border: 2px solid #6b4e3d;
+  transform: scale(1.05);
+}
+.plan h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+.plan p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+
+
