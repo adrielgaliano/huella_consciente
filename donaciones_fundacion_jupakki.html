@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donaciones - Huella Consciente</title>
+  <title>Donaciones - Fundación Hogar Rousi</title>
   <link rel="icon" href="images/Isotipo_sin_fondo.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,7 +17,6 @@
         <span>Huella Consciente</span>
       </a>
     </div>
-
     <nav>
       <a href="index.html">Inicio</a>
       <a href="adoptar.html">Adoptá</a>
@@ -39,66 +38,54 @@
       <a href="contacto.html">Contacto</a>
     <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
   </div>
-
   <script src="js/menu.js"></script>
 
   <!-- Hero -->
+
    <section class="hero">
     <div class="hero-slider">
-      <div class="slide active" style="background-image: url('images/hero_donaciones.png');"></div>
+      <div class="slide active" style="background-image: url('images/refugios/Fundacion\ Jupakki.jpeg');"></div>
     </div>
     <div class="hero-content">
-      <h1>💙 Doná y ayudanos a cambiar vidas</h1>
-      <p>Con tu aporte sostenemos la plataforma y apoyamos a los refugios que rescatan, cuidan y encuentran familias para cientos de animales.</p>
-      <a href="#opciones" class="btn-donar grande">Quiero donar ahora</a>
+      <h1>🐾 Fundación Jupakki</h1>
+      <p>Animales encuentran refugio, alimento y amor gracias a tu ayuda. Cada donación nos permite seguir rescatando y recuperando vidas.</p>
+      <a href="#alias" class="btn-donar grande">Quiero donar ahora</a>
     </div>
   </section>
 
-  <!-- Opciones de donación -->
-  <section id="opciones" class="donaciones">
-    <!-- Donaciones a Huella Consciente -->
-    <div class="donacion-card grande">
-      <h2>🌐 Apoyá a Huella Consciente</h2>
-      <p>Tu aporte nos permite mantener la plataforma y seguir conectando huellas con oportunidades. Cada donación nos acerca a más adopciones exitosas 🐾</p>
-      <a href="donar.html" class="btn-donar">Donar a Huella Consciente</a>
+  <!-- Datos bancarios -->
+  <section class="donacion-detalle">
+    <h2>💳 Donación directa</h2>
+    <div class="alias-box">
+      <p><b>Alias Mercado Pago: </b> <span id="alias">jupakki.mp</span></p>
+      <button onclick="copiarAlias()">Copiar alias</button>
     </div>
+    <p><strong>CVU: </strong> 0000003100049576902213</p>
+  </section>
 
-    <!-- Donaciones a refugios específicos -->
-    <div class="donacion-card">
-      <h2>🏠 Doná a un refugio en particular</h2>
-      <p>Elegí a qué refugio querés apoyar directamente. Tu ayuda se transforma en alimento, medicación y cuidados para los animales rescatados.</p>
-      
-      <div class="refugios grid">
-        <!-- Refugio 1 -->
-        <div class="card">
-          <img src="images/refugios/refugio2.jpeg" alt="FUNDACION HOGAR ROUSI" class="refugio-img">
-          <h3>Fundación Hogar Rousi</h3>
-          <p>🐾 Albergamos a más de 70 animales. Transitamos, recuperamos y conseguimos nuevas familias en Mendoza 🇦🇷.</p>
-          <a href="donaciones_fundacion_hogar_rousi.html" class="btn-donar">Donar</a>
-        </div>
-
-        <!-- Refugio 2 -->
-        <div class="card">
-          <img src="images/refugios/refugio1.jpeg" alt="La Casita de Lula" class="refugio-img">
-          <h3>La Casita de Lula</h3>
-          <p>❤️ ONG sin fines de lucro. Más de 250 perritos rescatados en Guaymallén, Mendoza.</p>
-          <a href="donaciones_la_casita_de_lula.html" class="btn-donar">Donar</a>
-        </div>
-
-        <!-- Refugio 3 -->
-        <div class="card">
-          <img src="images/refugios/refugio4.png" alt="El Refugio de Diego" class="refugio-img">
-          <h3>El Refugio de Diego</h3>
-          <p>🐶🐱 Más de 250 animales rescatados. Te invitamos a adoptar, colaborar y difundir ♻️.</p>
-          <a href="donaciones_el_refugio_de_diego.html" class="btn-donar">Donar</a>
-        </div>
-
-        <div class="card">
-          <img src="images/refugios/Fundacion Jupakki.jpeg" alt="Fundación Jupakki" class="refugio-img">
-          <h3>Fundación Jupakki</h3>
-          <p>Rescatamos animales. Sumate a la comunidad Jupakki🐾</p>
-          <a href="donaciones_fundacion_jupakki.html" class="btn-donar">Donar</a>
-        </div>
+  <!-- Planes de donación -->
+  <section id="planes" class="planes">
+    <h2>📦 Planes de ayuda mensual</h2>
+    <div class="grid">
+      <div class="plan">
+        <h3>PLAN HUELLAS: $2.000 AL MES</h3>
+        <a href="https://bit.ly/HuellasJupakki" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>PLAN SALVAVIDAS $5.000 al mes</h3>
+        <a href="https://bit.ly/SalvavidasJupakki" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan destacado">
+        <h3>PLAN RESCATISTAS $7.000 al mes</h3>
+        <a href="https://bit.ly/RescatistasJupakki" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>PLAN PADRINOS Y MADRINAS $10.000 al mes </h3>
+        <a href="https://bit.ly/MadrinasJupakki" class="btn-donar">Elegir este plan</a>
+      </div>
+      <div class="plan">
+        <h3>PLAN HEROES Y HEROINAS $15.000 al mes</h3>
+        <a href="https://bit.ly/HeroesJupakki" class="btn-donar">Elegir este plan</a>
       </div>
     </div>
   </section>
@@ -139,5 +126,15 @@
       © 2025 Huella Consciente - Todos los derechos reservados
     </div>
   </footer>
+
+  <!-- Script copiar alias -->
+  <script>
+    function copiarAlias() {
+      const alias = document.getElementById("alias").innerText;
+      navigator.clipboard.writeText(alias).then(() => {
+        alert("Alias copiado: " + alias);
+      });
+    }
+  </script>
 </body>
 </html>
