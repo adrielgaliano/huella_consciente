@@ -1773,5 +1773,1001 @@ nav a:hover {
 
 
 
+/* =========================
+   Sección Preguntas Frecuentes (FAQ)
+========================= */
+.faq-section {
+  padding: 40px 20px;
+  background-color: #fff; /* Fondo blanco para diferenciar */
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq-section h2 {
+  color: var(--marron);
+  margin-bottom: 30px;
+}
+
+.faq-container details {
+  background: var(--beige);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.faq-container summary {
+  padding: 15px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  list-style: none; /* Oculta el triángulo por defecto */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Ocultar triángulo en navegadores antiguos */
+.faq-container summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Icono de la flecha */
+.faq-container summary i {
+  color: var(--naranja);
+  transition: transform 0.3s ease;
+}
+
+/* Rotar flecha al abrir */
+.faq-container details[open] summary i {
+  transform: rotate(180deg);
+}
+
+/* Estilo de la respuesta */
+.faq-container p {
+  padding: 0 20px 20px 20px;
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.faq-container details[open] {
+  background: #fff3e0; /* Un tono naranjita muy suave al abrir */
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Botón secundario para "Ver Animales" */
+.refugios .card .btn-ver {
+  display: inline-block;
+  background-color: var(--marron); /* Marrón oscuro */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-right: 5px; /* Espacio si están juntos */
+  transition: background 0.3s, transform 0.2s;
+}
+
+.refugios .card .btn-ver:hover {
+  background-color: #3b2313; /* Un marrón aún más oscuro */
+  transform: translateY(-2px);
+}
+
+/* Ajuste para que los botones queden alineados */
+.refugios .card .acciones {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Página Anunciantes / Aliados
+========================= */
+
+/* 1. Header de la sección (Intro) */
+.aliados-intro {
+  text-align: center;
+  padding: 60px 20px 20px;
+  background-color: #fff;
+}
+.aliados-intro h2 {
+  color: var(--marron);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.aliados-intro p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* =========================
+   2. Grilla de Sponsors (Tarjetas con info)
+========================= */
+.sponsors-grid {
+  display: grid;
+  /* Columnas flexibles de mínimo 220px */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px 60px;
+  justify-items: center;
+}
+
+.sponsor-item {
+  width: 100%;
+  max-width: 250px;
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 15px;
+  text-align: center;
+  /* Sombra suave inicial */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+}
+
+/* Efecto "levantar" tarjeta al pasar el mouse */
+.sponsor-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  border-color: var(--naranja);
+}
+
+/* Estilos de la Imagen */
+.sponsor-item img {
+  width: 100%;
+  height: 120px; /* Altura fija para uniformidad */
+  object-fit: contain; /* Que el logo no se deforme */
+  /* Blanco y negro por defecto */
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.4s ease;
+  margin-bottom: 15px;
+}
+
+/* Al pasar el mouse sobre LA TARJETA, la imagen toma color */
+.sponsor-item:hover img {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Estilos del Nombre */
+.sponsor-name {
+  color: var(--marron);
+  font-size: 1.2rem;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Contenedor de Redes Sociales */
+.sponsor-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* Iconos de Redes */
+.sponsor-social a {
+  color: #aaa; /* Gris claro por defecto */
+  font-size: 1.3rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover en los iconos */
+.sponsor-social a:hover {
+  color: var(--naranja); /* Naranja al pasar el mouse */
+  transform: scale(1.1);
+}
+
+/* 3. Bloque de Llamada a la Acción (Opción 4B) */
+.sponsor-cta {
+  background: linear-gradient(135deg, #4a2b17 0%, #7d4e32 100%); /* Degradado marrón */
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 20px;
+  max-width: 900px;
+  margin: 0 auto 80px auto; /* Margen abajo para separar del footer */
+  box-shadow: 0 15px 30px rgba(74, 43, 23, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-cta h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.sponsor-cta p {
+  color: #e0e0e0;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  font-size: 1.1rem;
+}
+
+.btn-cta-sponsor {
+  display: inline-block;
+  background-color: var(--naranja);
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(214, 125, 75, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-cta-sponsor:hover {
+  background-color: #ff9e5e;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(214, 125, 75, 0.6);
+}
+
+/* Decoración de fondo (opcional) */
+.sponsor-cta::before {
+  content: '🐾';
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.05;
+  top: -50px;
+  left: -20px;
+  transform: rotate(-20deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Chatbot Asistente Virtual (Huellin)
+========================= */
+
+/* Botón Flotante (Contenedor de la imagen) */
+.chatbot-float {
+    position: fixed;
+    width: 90px;  /* Un poco más grande para que se luzca */
+    height: 90px;
+    bottom: 130px;
+    right: 32px;
+    /* Quitamos el fondo de color sólido para que quede solo el perrito */
+    background-color: transparent; 
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Sombra suave para que se despegue del fondo */
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+}
+
+/* La imagen del perrito */
+.chatbot-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Asegura que se vea entero sin cortarse */
+    transition: transform 0.3s ease;
+}
+
+.chatbot-float:hover img {
+    transform: scale(1.1) rotate(-5deg); /* Un pequeño "baile" al pasar el mouse */
+}
+
+/* Ventana del Chat */
+.chat-window {
+    display: none;
+    position: fixed;
+    bottom: 140px;
+    right: 120px;
+    width: 340px; /* Un poco más ancho */
+    height: 480px; /* Un poco más alto */
+    background-color: #fffcf5; /* Fondo crema muy suave */
+    border-radius: 25px; /* Bordes más redondeados y amigables */
+    box-shadow: 0 10px 30px rgba(97, 59, 36, 0.2); /* Sombra color marrón cálido */
+    z-index: 1001;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #f3e5ab; /* Borde color cremita */
+}
+
+/* Cabecera del Chat */
+.chat-header {
+    background: linear-gradient(135deg, var(--marron), #a05a2c); /* Degradado marrón cálido */
+    color: white;
+    padding: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+    border-bottom: 3px solid var(--naranja);
+}
+.chat-close { cursor: pointer; font-size: 1.5rem; transition:transform 0.2s; }
+.chat-close:hover { transform: rotate(90deg); color: var(--naranja); }
+
+/* Cuerpo del Chat */
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fffcf5; /* Fondo crema */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Un patrón de huellitas muy sutil de fondo (opcional) */
+    background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M15.3 10.8c-.8 0-1.5.7-1.5 1.5 0 .8.7 1.5 1.5 1.5.8 0 1.5-.7 1.5-1.5 0-.8-.7-1.5-1.5-1.5zm-3.6-1.8c-.8 0-1.5.7-1.5 1.5 0 .8.7 1.5 1.5 1.5.8 0 1.5-.7 1.5-1.5 0-.8-.7-1.5-1.5-1.5zM4.7 10.8c-.8 0-1.5.7-1.5 1.5 0 .8.7 1.5 1.5 1.5.8 0 1.5-.7 1.5-1.5 0-.8-.7-1.5-1.5-1.5zm3.6-1.8c-.8 0-1.5.7-1.5 1.5 0 .8.7 1.5 1.5 1.5.8 0 1.5-.7 1.5-1.5 0-.8-.7-1.5-1.5-1.5zM10 0C4.5 0 0 4.5 0 10s4.5 10 10 10 10-4.5 10-10S15.5 0 10 0zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z" fill="%23f68c1f" opacity="0.05"/></svg>');
+}
+
+/* Burbujas de Mensaje */
+.message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 88%;
+    font-size: 15px;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Mensaje de Huellin */
+.bot-msg {
+    background-color: white;
+    color: #5d4037; /* Marrón oscuro para el texto */
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    border: 2px solid #ffe0b2; /* Borde naranja muy claro */
+    position: relative;
+}
+/* Pequeña decoración para el mensaje del bot */
+.bot-msg::before {
+    content: '🐶';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    font-size: 20px;
+}
+
+/* Mensaje del Usuario */
+.user-msg {
+    background-color: var(--naranja);
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+    font-weight: bold;
+}
+
+/* Opciones (Botones) */
+.chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    padding-left: 10px; /* Indentado para que se vea como respuesta */
+}
+
+.option-btn {
+    background: white;
+    border: 2px solid var(--naranja);
+    color: var(--naranja);
+    padding: 12px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.2s;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.option-btn::before { content: '🐾 '; margin-right: 8px; }
+
+.option-btn:hover {
+    background: var(--naranja);
+    color: white;
+    transform: translateX(5px); /* Se mueve un poquito a la derecha */
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Ajuste Móvil */
+@media (max-width: 768px) {
+    .chatbot-float {
+        width: 90px; 
+        height: 90px;
+        bottom: 130px;
+        right: 32px;
+    }
+    .chat-window {
+        width: 90%;
+        right: 5%;
+        bottom: 200px;
+        height: 400px;
+    }
+}
+
+
+/* =========================
+   Globo de Texto Huellin
+========================= */
+.huellin-bubble {
+    position: fixed;
+    bottom: 225px; /* Calculado para estar justo arriba del botón */
+    right: 30px;   /* Alineado con el botón */
+    width: 220px;
+    background-color: white;
+    padding: 15px 15px 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* Sombra suave */
+    z-index: 999; /* Justo debajo del botón por si se solapan */
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: 'Segoe UI', sans-serif;
+    color: #4a2b17; /* Color marrón de la marca */
+    border: 2px solid #f3e5ab; /* Borde cremita */
+    animation: flotarEntrada 0.5s ease-out forwards;
+}
+
+/* El piquito del globo (triángulo) */
+.huellin-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Sale por debajo */
+    right: 45px;   /* Alineado hacia la derecha */
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #f3e5ab transparent; /* Mismo color del borde */
+    display: block;
+    width: 0;
+}
+/* Piquito interior (para que no se vea el borde doble) */
+.huellin-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -7px; 
+    right: 45px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: white transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+}
+
+/* Cruz de cerrar */
+.close-bubble {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #bbb;
+    font-size: 18px;
+    line-height: 1;
+    transition: color 0.3s;
+}
+.close-bubble:hover {
+    color: #f68c1f; /* Naranja al pasar el mouse */
+}
+
+/* Animación de entrada */
+@keyframes flotarEntrada {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+    .huellin-bubble {
+        bottom: 225px; /* Un poco más abajo en móvil */
+        right: 20px;
+        width: 180px;
+        font-size: 13px;
+    }
+}
+
+
+
+/* etiuetas de los animales*/
+.badge { background:#e0f2f1; color:#00695c; padding:2px 6px; border-radius:4px; font-size:11px; border:1px solid #b2dfdb; }
+
+
+
+/* =========================
+   Sección Impacto (Animaciones)
+========================= */
+
+/* Estilo base de las tarjetas */
+.impacto-card {
+    background-color: #fff8e1; /* Color cremita de la imagen */
+    padding: 40px 30px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    /* Estado inicial para la animación: oculto y desplazado hacia abajo */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estilo de los números */
+.impacto-card h3 {
+    font-size: 2.5rem;
+    color: #d87d4a; /* Color naranja/marrón de la imagen */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Estilo del texto descriptivo */
+.impacto-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Clase que se añade con JS para activar la animación de entrada */
+.impacto-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Retraso escalonado para que no aparezcan todas juntas */
+.impacto-card:nth-child(2) { transition-delay: 0.2s; }
+.impacto-card:nth-child(3) { transition-delay: 0.4s; }
+
+
+
+
+
+
+
+/* =========================
+   GENERADOR DE STORIES (Insta-Card)
+========================= */
+
+/* Botón de Cámara en la tarjeta */
+.btn-poster {
+    position: absolute;
+    top: 10px;
+    left: 10px; /* A la izquierda (el corazón estaba a la derecha) */
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s;
+    z-index: 5;
+    display: flex; align-items: center; justify-content: center;
+}
+.btn-poster:hover { transform: scale(1.1); background: #f68c1f; }
+
+/* Modal Oscuro */
+.poster-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 3000;
+    display: none; justify-content: center; align-items: center;
+    backdrop-filter: blur(5px);
+}
+.poster-modal.active { display: flex; animation: fadeIn 0.3s; }
+
+.poster-content {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%; max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+.close-poster {
+    position: absolute; top: 10px; right: 15px;
+    font-size: 24px; cursor: pointer; color: #555;
+}
+
+.btn-descargar {
+    background: #f68c1f; color: white; border: none;
+    padding: 12px 25px; border-radius: 50px;
+    font-weight: bold; margin-top: 15px; cursor: pointer;
+    width: 100%;
+}
+
+/* Animación tipo Polaroid (El efecto "vistoso") */
+.polaroid-anim {
+    animation: slideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+@keyframes slideUp { from { transform: translateY(50px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+
+
+
+
+
+/* =========================
+   Galería de Fotos en Tarjetas
+========================= */
+.gallery-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Altura fija para la imagen */
+    overflow: hidden;
+}
+
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s;
+    z-index: 2;
+}
+.gallery-btn:hover { background: rgba(246, 140, 31, 0.9); }
+.gallery-btn.prev { left: 10px; }
+.gallery-btn.next { right: 10px; }
+
+/* Indicador de que hay más fotos */
+.multi-photo-badge {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    z-index: 2;
+}
+
+/* =========================
+   Corrección de Altura de Fotos
+========================= */
+
+/* =========================
+   FOTOS CUADRADAS PERFECTAS (1:1)
+========================= */
+
+/* Aplicamos esto tanto al contenedor de la galería como a la imagen suelta */
+.gallery-wrapper, 
+.card-img {
+    width: 100%;       /* Ocupa todo el ancho de la tarjeta */
+    height: auto;      /* Deja que la altura se calcule sola */
+    aspect-ratio: 1 / 1; /* MAGIA: Obliga a que la altura sea IGUAL a la anchura */
+    object-fit: cover; /* Recorta la imagen para llenar el cuadrado sin deformar */
+    display: block;
+    border-radius: 10px 10px 0 0; /* Bordes redondeados arriba */
+}
+
+
+
+
+
+
+/* =========================
+   ESTILOS PARA PÁGINAS NUEVAS (Tránsito y Papelera)
+========================= */
+.pet-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Crea columnas automáticas */
+    gap: 30px; /* Espacio entre tarjetas */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Ajuste para que el contenedor principal no se pegue a los bordes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+}
+
+/* Un pequeño arreglo para las tarjetas en estas listas */
+.pet-list-grid .pet-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden; /* Para que la foto no se salga */
+    display: flex;
+    flex-direction: column; /* Asegura que el contenido vaya hacia abajo */
+}
+
+
+
+
+
+
+/* =========================
+   ESTILOS DEL MODAL (Corregido: Tamaño Pequeño)
+========================= */
+
+/* 1. Fondo Oscuro */
+.poster-modal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85); /* Fondo bien oscuro */
+    z-index: 9999; /* Por encima de todo */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    padding: 10px; /* Un poco de aire en celulares */
+    box-sizing: border-box;
+}
+.poster-modal.active { display: flex; animation: fadeIn 0.3s; }
+
+/* 2. El Cuadro Blanco (Contenedor) */
+.poster-content {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px; /* ¡IMPORTANTE! Ancho máximo de celular */
+    max-height: 90vh; /* ¡IMPORTANTE! Que nunca sea más alto que la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Corta cualquier cosa que se quiera salir */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Botón de cerrar (X) */
+.close-poster {
+    position: absolute; top: 10px; right: 15px;
+    font-size: 28px; cursor: pointer; color: #333; z-index: 10;
+}
+
+/* Área donde va la imagen */
+#posterCanvasArea {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    min-height: 150px; /* Espacio mínimo mientras carga */
+    overflow: hidden; /* Seguridad extra */
+}
+
+/* 3. RESTRICCIÓN AGRESIVA DE LA IMAGEN (CANVAS) */
+#posterCanvasArea canvas {
+    /* Estas reglas obligan a la imagen gigante a encajar en el cuadro chico */
+    max-width: 100% !important;  
+    max-height: 55vh !important; /* Máximo el 55% de la altura de tu pantalla */
+    width: auto !important;
+    height: auto !important;
+    
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Botón Descargar */
+.btn-descargar {
+    background: #f68c1f; color: white; border: none;
+    padding: 12px 30px; border-radius: 50px;
+    font-weight: bold; cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: transform 0.2s;
+}
+.btn-descargar:hover { transform: scale(1.05); }
+
+
+/* =========================
+   DISEÑO GRÁFICO DEL PÓSTER (VERSIÓN LIMPIA Y PEQUEÑA)
+   Resolución nativa: 1080px x 1920px
+========================= */
+#insta-template {
+    position: fixed; top: -9999px; left: -9999px;
+    width: 1080px; 
+    height: 1920px;
+    /* Fondo más suave */
+    background: linear-gradient(180deg, #fffbf5 0%, #ffeace 100%);
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    /* Reducimos padding general */
+    padding: 50px 40px; 
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #4e342e;
+    text-align: center;
+    justify-content: space-between;
+}
+
+/* 1. HEADER (Más pequeño) */
+.header-container {
+    display: flex; flex-direction: column; align-items: center; 
+    gap: 15px; /* Menos espacio entre logo y nombre */
+    width: 100%;
+}
+
+.logo-box {
+    /* Reducimos drásticamente el tamaño del contenedor del logo */
+    width: 230px; height: 230px; 
+    background: white;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    display: flex; align-items: center; justify-content: center;
+}
+
+.logo-box img { width: 100%; height: 100%; object-fit: contain; border-radius: 100%; }
+
+#tpl-shelter {
+    /* Fuente mucho más chica para que entren nombres largos */
+    font-size: 42px; 
+    font-weight: 800; 
+    margin: 0;
+    color: #4e342e;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    max-width: 90%;
+    line-height: 1.2; /* Mejor interlineado si ocupa dos líneas */
+}
+
+/* 2. FOTO CENTRAL (Marco más limpio, sin rotación) */
+.main-photo-frame {
+    background: white;
+    padding: 15px; /* Marco blanco más fino */
+    /* Quitamos el estilo "polaroid" exagerado de abajo */
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    /* Eliminamos la rotación para un look más limpio */
+    /* transform: rotate(-2deg); */ 
+    width: 850px; /* Un poco más ancho para aprovechar espacio */
+    margin: 20px 0;
+}
+
+.photo-inner {
+    width: 100%;
+    height: 850px; /* Foto cuadrada grande */
+    background: #f0f0f0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#tpl-img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 3. INFO ANIMAL (Textos más chicos) */
+.animal-info {
+    width: 90%;
+    z-index: 10;
+    padding-bottom: 20px;
+}
+
+#tpl-name {
+    /* Reducimos drásticamente el nombre */
+    font-size: 80px; 
+    font-weight: 900; 
+    margin: 0;
+    color: #3e2723;
+    /* Sombra más sutil */
+    text-shadow: 2px 2px 0px #ffffff; 
+    line-height: 1;
+}
+
+#tpl-desc {
+    /* Descripción más pequeña y legible */
+    font-size: 50px; 
+    font-style: italic; 
+    color: #6d4c41;
+    margin-top: 15px;
+    padding: 0 20px;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+/* 4. FOOTER (Más alto y con QR más grande) */
+.poster-footer {
+    width: 100%;
+    background: #f68c1f;
+    border-radius: 30px;
+    
+    /* AUMENTADO: Más relleno vertical para dar altura */
+    padding: 40px 45px; /* Antes era 20px 30px */
+    
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 10px 30px rgba(246, 140, 31, 0.3);
+    box-sizing: border-box;
+}
+
+.brand-left { display: flex; align-items: center; gap: 20px; }
+/* Aumenté un poquito el logo de la izquierda para equilibrar */
+.brand-left img { width: 95px; height: auto; } 
+.brand-left span {
+    font-size: 20px; /* Un poco más grande */
+    color: white; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;
+}
+
+.qr-right {
+    display: flex; align-items: center; gap: 35px;
+    background: rgba(255,255,255,0.15);
+    padding: 25px 40px; /* Más aire alrededor del QR */
+    border-radius: 25px;
+    
+}
+
+.qr-text { text-align: right; color: white; }
+
+.qr-text span { 
+    display: block; 
+    font-size: 40px; /* AUMENTADO: De 28px a 40px */
+    font-weight: 900; line-height: 1; 
+}
+
+.qr-text small { 
+    font-size: 30px; /* AUMENTADO: De 16px a 22px */
+    opacity: 0.9; 
+}
+
+.qr-code-img {
+    width: 150px; height: 150px; /* AUMENTADO: De 100px a 140px */
+    background: white; padding: 10px; border-radius: 15px;
+}
