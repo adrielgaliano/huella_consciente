@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Refugios</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-box { max-width: 400px; margin: 100px auto; padding: 30px; border: 1px solid #ddd; border-radius: 10px; text-align: center; background: white; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #f68c1f; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #e07b15; }
+        .error { color: red; display: none; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <header style="background:white; padding: 10px; text-align:center; border-bottom:1px solid #eee;">
+        <a href="index.html" style="text-decoration:none; color:#333; font-weight:bold;">← Volver a Huella Consciente</a>
+    </header>
+
+    <div class="login-box">
+        <h2>Soy Refugio</h2>
+        <p>Ingresa para administrar tus animales</p>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email del refugio" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+            <p id="errorMsg" class="error">Datos incorrectos</p>
+        </form>
+        <br>
+        <small>¿No tienes cuenta? <a href="contacto.html">Contáctanos</a></small>
+    </div>
+
+    <script type="module">
+        import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { auth } from "./js/config.js";
+
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+            try {
+                await signInWithEmailAndPassword(auth, email, pass);
+                window.location.href = "admin.html"; // Redirigir al panel
+            } catch (error) {
+                document.getElementById("errorMsg").style.display = "block";
+                console.error(error);
+            }
+        });
+    </script>
+</body>
+</html>

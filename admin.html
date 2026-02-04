@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Gestión - Huella Consciente</title>
+    <link rel="icon" href="images/Isotipo_sin_fondo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
+        .header-panel { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f68c1f; }
+        .panel { background: #fff3e0; padding: 25px; border-radius: 10px; margin-bottom: 30px; border: 1px solid #ffe0b2; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .full-width { grid-column: span 2; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { cursor: pointer; }
+        .btn-submit { width:100%; padding:15px; background:#f68c1f; color:white; border:none; border-radius:5px; font-weight:bold; }
+        .btn-cancel { background: #999; margin-top: 10px; display: none; }
+        
+        /* Estilos Nuevos */
+        .tags-section { background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; }
+        .tags-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 10px; }
+        .tags-grid label { font-size: 14px; display: flex; align-items: center; gap: 5px; cursor: pointer; }
+        
+        /* Stats en Tarjetas */
+        .my-pets { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        .pet-card-admin { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: white; position: relative; }
+        .pet-card-admin img { width: 100%; height: 160px; object-fit: cover; border-radius: 5px; }
+        .stats-bar { background: #333; color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .date-info { font-size: 11px; color: #777; margin-top: 5px; display: block; }
+        
+        .adoptado-card { opacity: 0.7; background: #f9f9f9; border: 1px dashed #999; }
+        .card-actions button { margin-top: 5px; width: 100%; padding: 8px; cursor: pointer; border: none; border-radius: 4px; color: white; }
+    </style>
+</head>
+<body>
+    <div id="loadingMsg" style="text-align:center; margin-top: 50px;">
+        <img src="images/Isotipo_con_fondo.png" width="50" alt="...">
+        <p>Cargando panel...</p>
+    </div>
+
+    <div class="container" id="adminPanel" style="display:none;">
+        <div class="header-panel">
+            <div>
+                <h1 style="margin:0;">Panel de Gestión</h1>
+                <small id="refugioEmailDisplay">...</small>
+            </div>
+            <button id="btnLogout" style="padding:10px 20px; background:#333; color:white; border:none; border-radius:5px;">Cerrar Sesión</button>
+        </div>
+
+        <div class="panel">
+            <h2 id="formTitle">➕ Cargar Mascota</h2>
+            <form id="addPetForm">
+                <input type="hidden" id="editId">
+                <input type="hidden" id="existingFotoUrl">
+                <input type="hidden" id="existingFotoUrl2"> <div class="form-grid">
+                    <input type="text" id="nombre" placeholder="Nombre" required>
+                    
+                    <select id="refugioSelector" required>
+                        <option value="">Tu Refugio...</option>
+                        <option value="La Casita de Lula">La Casita de Lula</option>
+                        <option value="FUNDACION HOGAR ROUSI">FUNDACION HOGAR ROUSI</option>
+                        <option value="Gatitos en adopción Mendoza">Gatitos en adopción Mendoza</option>
+                        <option value="El Refugio de Diego">El Refugio de Diego</option>
+                        <option value="Adopción Responsable Mendoza">Adopción Responsable Mendoza</option>
+                        <option value="Fundación Jupakki">Fundación Jupakki</option>
+                    </select>
+
+                    <div style="border:1px solid #ddd; padding:10px; border-radius:5px;">
+                        <label style="font-size:12px;">Edad:</label>
+                        <select id="metodoEdad" onchange="toggleEdadInput()">
+                            <option value="fecha">Fecha Nacimiento (Exacta/Aproximada)</option>
+                            <option value="categoria">Categoría</option>
+                        </select>
+                        <input type="date" id="fecha" style="margin-top:5px;">
+                        <select id="edadCategoria" style="display:none; margin-top:5px;">
+                            <option value="Cachorro">Cachorro</option>
+                            <option value="Adulto">Adulto</option>
+                            <option value="Senior">Senior</option>
+                        </select>
+                    </div>
+
+                    <select id="tipo"><option value="perro">Perro</option><option value="gato">Gato</option><option value="conejo">Conejo</option></select>
+                    <select id="sexo"><option value="macho">Macho</option><option value="hembra">Hembra</option></select>
+                    <select id="tamano">
+                        <option value="-">- (Desconocido)</option>
+                        <option value="pequeño">Pequeño</option>
+                        <option value="mediano">Mediano</option>
+                        <option value="grande">Grande</option>
+                    </select>
+                    
+                    <input type="number" id="telefonoWsp" placeholder="WhatsApp (Agregar 549 + codigo de area ej: 54926155555555)" required>
+                    <input type="text" id="ubicacion" placeholder="Ubicación" value="Mendoza">
+
+                    <div class="full-width tags-section">
+                        <label>📸 Fotos (Máximo 2)</label>
+                        <div style="display:flex; gap:10px; margin-top:5px;">
+                            <input type="file" id="foto" accept="image/*">
+                            <input type="file" id="foto2" accept="image/*">
+                        </div>
+                        <small id="fotoHelp" style="display:none; color:green;">(Si no subes nuevas, se mantienen las actuales)</small>
+                    </div>
+
+                    <div class="full-width tags-section">
+                        <label>🩺 Salud y Comportamiento</label>
+                        <div class="tags-grid">
+                            <label><input type="checkbox" id="tag_castrado"> Castrado</label>
+                            <label><input type="checkbox" id="tag_vacunado"> Vacunado</label>
+                            <label><input type="checkbox" id="tag_desparasitado"> Desparasitado</label>
+                            <label><input type="checkbox" id="tag_gatos"> Apto Gatos</label>
+                            <label><input type="checkbox" id="tag_perros"> Apto Perros</label>
+                            <label><input type="checkbox" id="tag_ninos"> Apto Niños</label>
+                            <label><input type="checkbox" id="tag_disca"> Cuidados Esp.</label>
+                            <label><input type="checkbox" id="tag_transito"> 🏠 Busca Tránsito</label>
+                        </div>
+                    </div>
+
+                    <div class="full-width">
+                        <textarea id="desc" placeholder="Descripción..." rows="3" required></textarea>
+                    </div>
+
+                    <div class="full-width">
+                        <button type="submit" id="btnSubmit" class="btn-submit">PUBLICAR</button>
+                        <button type="button" id="btnCancelEdit" class="btn-submit btn-cancel" onclick="cancelarEdicion()">CANCELAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <h3>📋 En Adopción</h3>
+        <div id="petsList" class="my-pets"></div>
+        
+        <h3>🎉 Historial Adoptados</h3>
+        <div id="adoptedList" class="my-pets"></div>
+    </div>
+
+    <script>
+        function toggleEdadInput() {
+            const m = document.getElementById("metodoEdad").value;
+            document.getElementById("fecha").style.display = m === "fecha" ? "block" : "none";
+            document.getElementById("edadCategoria").style.display = m === "categoria" ? "block" : "none";
+        }
+    </script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En Tránsito | Huella Consciente</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Isotipo_sin_fondo.png" alt="Huella Consciente" />
+        <span>Huella Consciente</span>
+      </a>
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="adoptar.html">Adoptá</a>
+        <a href="adoptados.html">Historias de Éxito</a>
+        <a href="Anunciantes.html">Aliados Estratégicos</a>
+        <a href="refugios.html">Refugios</a>
+        <a href="contacto.html">Contacto</a>
+      <button class="donar-btn"><a href="donaciones.html">Donar 🤎</a></button>
+    </nav>
+    <span class="hamburger" onclick="openNav()">☰</span>
+  </header>
+
+  <!-- Menú overlay -->
+  <div id="myNav" class="overlay">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+      <a href="index.html">Inicio</a>
+      <a href="adoptar.html">Adoptá</a>
+      <a href="adoptados.html">Historias de Éxito</a>
+      <a href="Anunciantes.html">Aliados Estratégicos</a>
+      <a href="refugios.html">Refugios</a>
+      <a href="contacto.html">Contacto</a>
+    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
+  </div>
+
+  <script src="js/menu.js"></script>
+
+    <header class="hero-mini" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/fondo_transito.jpg'); background-size:cover; background-position:center;">
+        <h1>🚚 En Hogar de Tránsito</h1>
+        <p>Estos peluditos están siendo cuidados temporalmente por familias amorosas.</p>
+    </header>
+
+    <div class="container" style="padding: 40px 20px;">
+        <div id="transit-list" class="pet-list-grid">
+            <p style="width:100%; text-align:center;">Cargando...</p>
+        </div>
+    </div>
+
+    <script type="module">
+        import { collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { db } from "./js/config.js";
+
+        const container = document.getElementById("transit-list");
+
+        async function cargarTransitos() {
+            // Traemos solo los que tienen estado "en_transito"
+            const q = query(collection(db, "mascotas"), where("estado", "==", "en_transito"));
+            const snap = await getDocs(q);
+
+            container.innerHTML = "";
+            
+            if(snap.empty) {
+                container.innerHTML = "<p style='grid-column: 1/-1; text-align: center;'>No hay animales en tránsito actualmente.</p>";
+                return;
+            }
+
+            snap.forEach(d => {
+                const data = d.data();
+                
+                // Creamos la tarjeta con los mismos estilos que adoptar.html
+                const card = document.createElement("div");
+                card.className = "pet-card";
+                card.innerHTML = `
+                    <img src="${data.fotoUrl}" class="card-img" style="aspect-ratio:1/1; object-fit:cover;">
+                    <div class="pet-info">
+                        <h3>${data.nombre}</h3>
+                        <div class="tags-container">
+                            <span class="badge" style="background:#fff3e0; color:#ef6c00; border:1px solid #ffe0b2">🏠 En Tránsito</span>
+                        </div>
+                        <p style="font-size:14px; margin-top:10px;"><b>Refugio:</b> ${data.refugioNombre}</p>
+                        <p>${data.descripcion}</p>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+        cargarTransitos();
+
+        // Menu hamburguesa móvil
+        document.querySelector(".hamburger").onclick = () => {
+            document.querySelector(".nav-links").classList.toggle("active");
+        };
+    </script>
+</body>
+</html>

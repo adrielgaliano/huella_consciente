@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta name="description" content="Somos una plataforma digital solidaria que conecta a refugios, rescatistas y familias adoptantes para promover la adopción responsable y el cuidado de animales en situación de abandono.">
+  <meta name="keywords" content="adopcion, mendoza, perros, gatos, refugios, mascotas, donaciones">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://huellaconsciente.com.ar/">
+  <meta property="og:title" content="Huella Consciente | Red de Adopción Responsable">
+  <meta property="og:description" content="Conectamos refugios y familias para promover la adopción responsable. ¡Encontrá a tu compañero ideal!">
+  <meta property="og:site_name" content="Huella Consciente">
+
+  <meta property="og:image" content="https://huellaconsciente.com.ar/images/Isotipo_con_fondo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="theme-color" content="#f68c1f">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -26,6 +40,7 @@
     <nav>
         <a href="index.html">Inicio</a>
         <a href="adoptar.html">Adoptá</a>
+        <a href="adoptados.html">Historias de Éxito</a>
         <a href="Anunciantes.html">Aliados Estratégicos</a>
         <a href="refugios.html">Refugios</a>
         <a href="contacto.html">Contacto</a>
@@ -39,6 +54,7 @@
     <span class="closebtn" onclick="closeNav()">&times;</span>
       <a href="index.html">Inicio</a>
       <a href="adoptar.html">Adoptá</a>
+      <a href="adoptados.html">Historias de Éxito</a>
       <a href="Anunciantes.html">Aliados Estratégicos</a>
       <a href="refugios.html">Refugios</a>
       <a href="contacto.html">Contacto</a>
@@ -61,24 +77,46 @@
     </div>
   </section>
 
+<section class="destacados" style="padding: 40px 20px; text-align: center;">
+  <h2>🐶 Esperando un Hogar</h2>
+  <p>Conoce a algunos de los peluditos que acaban de llegar.</p>
+  
+  <div id="featured-pets" class="pet-grid" style="justify-content: center;">
+      <p>Cargando...</p>
+  </div>
+
+  <div style="margin-top: 30px;">
+      <a href="adoptar.html" class="btn-hero">Ver todos los animales</a>
+  </div>
+</section>
+
+
+
+
+
+
+
   <!-- Datos de impacto -->
-  <section class="impacto">
-    <h2>Nuestra realidad hoy</h2>
-    <div class="impacto-grid">
-      <div class="impacto-card">
-        <h3>+20M</h3>
-        <p>Animales en situación de calle en Argentina</p>
-      </div>
-      <div class="impacto-card">
-        <h3>+5000</h3>
-        <p>Animales sin hogar en el Gran Mendoza</p>
-      </div>
-      <div class="impacto-card">
-        <h3>1 solo gesto</h3>
-        <p>Adoptar, donar o difundir puede salvar vidas</p>
-      </div>
+<section id="impacto" style="padding: 60px 20px; text-align: center;">
+    <h2 style="font-size: 2rem; color: var(--marron); margin-bottom: 40px;">Nuestra realidad hoy</h2>
+    
+    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+        <div class="impacto-card">
+            <h3 class="contador" data-target="20000000" data-prefijo="+">+0M</h3>
+            <p>Animales en situación de calle en Argentina</p>
+        </div>
+        
+        <div class="impacto-card">
+            <h3 class="contador" data-target="5000" data-prefijo="+">+0</h3>
+            <p>Animales sin hogar en el Gran Mendoza</p>
+        </div>
+        
+        <div class="impacto-card">
+            <h3>1 solo gesto</h3>
+            <p>Adoptar, donar o difundir puede salvar vidas</p>
+        </div>
     </div>
-  </section>
+</section>
 
   <!-- Video -->
   <section class="video-section">
@@ -212,17 +250,35 @@
   <iframe src="https://www.youtube.com/embed/FeEuwBHB3Tg?si=FSjOcRQAGBOR4IyX" title="Declaración de Interés Provincial" allowfullscreen></iframe>
 </section>
 
+
   <!-- CTA -->
   <section class="colabora">
-    <h2>Colaborá y sé parte del cambio</h2>
-    <a href="donaciones.html">Donar ahora</a>
-  </section>
-
-  <!-- Consciencia -->
-  <section class="consciencia">
     <h2>Un llamado a la consciencia</h2>
     <p>Adoptar, difundir, donar o simplemente compartir el mensaje. Juntos podemos construir una sociedad más responsable y compasiva.</p>
   </section>
+
+  <section class="transito-section" style="background: linear-gradient(to right, #f68c1f, #e65100); padding: 60px 20px; text-align: center; color: white;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px; color:white;">¿No podés adoptar hoy?</h2>
+    <p style="font-size: 1.2rem; margin-bottom: 30px; line-height: 1.6;">
+      ¡No te preocupes! Podés ser un héroe igual. Convertite en <b>Hogar de Tránsito</b> y dale refugio temporal a un rescatado hasta que encuentre su familia definitiva.
+    </p>
+    
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <a href="adoptar.html" class="btn-transito" style="background: white; color: #e65100; padding: 15px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s;">
+           🏠 Quiero ser Tránsito
+        </a>
+        <a href="donaciones.html" class="btn-transito-outline" style="background: transparent; border: 2px solid white; color: white; padding: 13px 30px; border-radius: 50px; font-weight: bold; text-decoration: none; font-size: 1.1rem; transition: background 0.3s;">
+           💖 Hacer una Donación
+        </a>
+    </div>
+  </div>
+</section>
+
+<style>
+.btn-transito:hover { transform: scale(1.05); }
+.btn-transito-outline:hover { background: rgba(255,255,255,0.1); }
+</style>
 
   <script src="js/slider.js"></script>
 <!-- Footer -->
@@ -261,6 +317,76 @@
     © 2025 Huella Consciente - Todos los derechos reservados
   </div>
 </footer>
+<script type="module" src="js/index.js"></script>
+
+<!--boton whatsapp-->
+<a href="https://wa.me/5492615555555" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    /* Aumentado de 60px a 75px */
+    width: 75px; 
+    height: 75px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    /* Aumentado el icono de 30px a 40px */
+    font-size: 40px; 
+    box-shadow: 2px 2px 5px #999; /* Sombra un poco más marcada */
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #128c7e;
+    transform: scale(1.1);
+}
+
+/* Ajuste para móviles */
+@media screen and (max-width: 768px) {
+    .whatsapp-float {
+        /* Aumentado de 50px a 60px */
+        width: 75px;
+        height: 75px;
+        bottom: 40px;
+        right: 40px;
+        /* Aumentado el icono de 25px a 30px */
+        font-size: 40px; 
+    }
+}
+</style>
+
+
+<div class="huellin-bubble" id="huellinBubble">
+  <span class="close-bubble" onclick="document.getElementById('huellinBubble').style.display='none'">&times;</span>
+  <p>¡Hola, guau guau! 🐾 Soy <b>Huellin</b>, el asistente virtual de Huella Consciente. ¿En qué puedo ayudarte?</p>
+</div>
+
+<div class="chatbot-float" onclick="toggleChat()">
+    <img src="images/huellin_icon.png" alt="Huellin Asistente">
+</div>
+
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        <span>Huellin - Chatbot de Huella Consciente</span>
+        <span class="chat-close" onclick="toggleChat()">&times;</span>
+    </div>
+    <div class="chat-body" id="chatBody">
+        </div>
+</div>
+
+<script src="js/chatbot.js"></script>
+
+<script src="js/poster.js"></script>
+
 </body>
 </html>
-

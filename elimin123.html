@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelera - Huella Consciente</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .trash-header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .pet-card.deleted {
+            opacity: 0.8;
+            border: 2px solid #ffcdd2;
+        }
+        /* Ocultamos el contenido al principio para que no se vea nada si no estás logueado */
+        #protected-content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="checking-auth" style="text-align:center; padding:50px; font-family:sans-serif;">
+        <h2>🔒 Verificando permisos...</h2>
+    </div>
+
+    <div id="protected-content">
+        <div class="trash-header">
+            <h1>🗑️ PAPELERA DE RECICLAJE</h1>
+            <p>Animales eliminados (Solo visibles para admins)</p>
+            <a href="admin.html" style="color:white; text-decoration:underline; font-size:14px;">← Volver al Panel</a>
+        </div>
+
+        <div class="container">
+            <div id="trash-list" class="pet-list-grid">
+                <p style="text-align:center;">Cargando eliminados...</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        import { db, auth } from "./js/config.js";
+
+        // 1. EL PORTERO DE SEGURIDAD
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // SI ESTÁ LOGUEADO:
+                console.log("Acceso concedido a: " + user.email);
+                document.getElementById("checking-auth").style.display = "none"; // Ocultar mensaje de carga
+                document.getElementById("protected-content").style.display = "block"; // Mostrar contenido
+                cargarEliminados(); // Cargar los datos
+            } else {
+                // SI NO ESTÁ LOGUEADO:
+                console.warn("Intruso detectado. Redirigiendo...");
+                window.location.href = "login.html"; // ¡FUERA!
+            }
+        });
+
+        // 2. CARGAR DATOS (Solo se ejecuta si el portero dio paso)
+        async function cargarEliminados() {
+            const container = document.getElementById("trash-list");
+            const q = query(collection(db, "mascotas"), where("estado", "==", "eliminado"));
+            
+            try {
+                const snap = await getDocs(q);
+                container.innerHTML = "";
+                
+                if(snap.empty) {
+                    container.innerHTML = "<p style='text-align:center; width:100%;'>La papelera está vacía.</p>";
+                    return;
+                }
+
+                snap.forEach(d => {
+                    const data = d.data();
+                    const div = document.createElement("div");
+                    div.className = "pet-card deleted"; 
+                    div.innerHTML = `
+                        <img src="${data.fotoUrl}" class="card-img" style="aspect-ratio:1/1; object-fit:cover; filter:grayscale(100%);">
+                        <div class="pet-info">
+                            <h3 style="text-decoration:line-through;">${data.nombre}</h3>
+                            <p><b>Refugio:</b> ${data.refugioNombre}</p>
+                            <p style="color:#d32f2f; font-weight:bold; margin-top:10px;">ESTADO: ELIMINADO</p>
+                            <small>ID: ${d.id}</small>
+                        </div>
+                    `;
+                    container.appendChild(div);
+                });
+            } catch (error) {
+                console.error("Error cargando eliminados:", error);
+                container.innerHTML = "<p>Error de permisos.</p>";
+            }
+        }
+    </script>
+</body>
+</html>
