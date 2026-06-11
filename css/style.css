@@ -2771,3 +2771,99 @@ nav a:hover {
     width: 150px; height: 150px; /* AUMENTADO: De 100px a 140px */
     background: white; padding: 10px; border-radius: 15px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   Nuevos estilos para el Input del Chatbot
+========================= */
+.chat-input-area {
+    display: flex;
+    padding: 12px 15px;
+    background-color: #fffcf5; /* Mismo crema de la ventana */
+    border-top: 2px solid #f3e5ab;
+    align-items: center;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#chatInput:focus {
+    border-color: var(--naranja);
+}
+
+#sendBtn {
+    background-color: var(--naranja);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#sendBtn:hover {
+    transform: scale(1.1);
+    background-color: var(--marron);
+}
+
+/* Modificamos un poco el chat-body para que se adapte al nuevo input */
+.chat-window {
+    height: 520px; /* Un poquito más alto para que entre el input cómodo */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
