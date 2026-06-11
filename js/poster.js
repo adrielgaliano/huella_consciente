@@ -9,6 +9,7 @@ const LOGOS_REFUGIOS = {
     "FUNDACION HOGAR ROUSI": "images/refugios/refugio2.jpeg",
     "Adopción Responsable Mendoza": "images/refugios/Adopcion Responsable Mendoza.jpeg",
     "Fundación Jupakki": "images/refugios/Fundacion Jupakki.jpeg",
+    "Mua ONG":"images/refugios/Mua.jpeg",
     // Agrega aquí todos los que necesites...
     
     "default": "images/Isotipo_con_fondo.png" // Logo por defecto si no coincide ninguno
