@@ -320,7 +320,7 @@
 <script type="module" src="js/index.js"></script>
 
 <!--boton whatsapp-->
-<a href="https://wa.me/5492617060918" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/5492615555555" class="whatsapp-float" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
@@ -377,11 +377,19 @@
 
 <div class="chat-window" id="chatWindow">
     <div class="chat-header">
-        <span>Huellin - Chatbot de Huella Consciente</span>
+        <span>🐾 Huellín - Asistente</span>
         <span class="chat-close" onclick="toggleChat()">&times;</span>
     </div>
+    
     <div class="chat-body" id="chatBody">
-        </div>
+    </div>
+    
+    <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Escribí tu pregunta acá..." onkeypress="handleKeyPress(event)">
+        <button id="sendBtn" onclick="enviarMensaje()">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
 </div>
 
 <script src="js/chatbot.js"></script>
@@ -390,4 +398,3 @@
 
 </body>
 </html>
-
