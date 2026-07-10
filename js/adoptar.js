@@ -91,9 +91,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             card.dataset.ageCat = ageCategory;
             card.dataset.name = (data.nombre || "").toLowerCase();
 
-            // Lógica del contacto (Usamos fallback si no hay teléfono)
-            const shelterPhone = data.contacto || "2610000000";
-
             card.innerHTML = `
                 ${imageHtml}
                 <div class="pet-info">
@@ -109,9 +106,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <p>${data.descripcion}</p>
                 </div>
                 
-                <button class="btn-adoptar" onclick="abrirAdopcion('${dId}', '${data.nombre}', '${shelterPhone}')">
-                    <i class="fab fa-whatsapp"></i> ¡Quiero Adoptar!
-                </button>
+                <!-- MODIFICACIÓN APLICADA: Enlace dinámico a la página de la mascota -->
+                <a href="mascota.html?id=${dId}" class="btn-adoptar" style="display: block; text-align: center; text-decoration: none; margin-top: 10px;">
+                    🐾 Conoceme
+                </a>
             `;
             container.appendChild(card);
         });
@@ -130,87 +128,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         container.innerHTML = "<p>Hubo un error al cargar. Por favor intenta más tarde.</p>";
     }
 });
-
-// ==========================================
-// LÓGICA DEL FORMULARIO Y "BOT" WHATSAPP
-// ==========================================
-
-// 1. Abrir Modal (Global)
-window.abrirAdopcion = (id, nombre, telefono) => {
-    // Llenamos los campos ocultos del modal
-    const modal = document.getElementById("modalAdopcion");
-    if(modal) {
-        document.getElementById("modalPetId").value = id;
-        document.getElementById("modalPetName").value = nombre;
-        document.getElementById("modalShelterPhone").value = telefono;
-        modal.style.display = "flex";
-    } else {
-        console.error("Falta el HTML del modal en adoptar.html");
-    }
-};
-
-// 2. Cerrar Modal (Global)
-window.cerrarModal = () => {
-    const modal = document.getElementById("modalAdopcion");
-    if(modal) modal.style.display = "none";
-};
-
-// 3. Manejo del Envío del Formulario
-const formAdopcion = document.getElementById("formAdopcion");
-if(formAdopcion) {
-    formAdopcion.onsubmit = async (e) => {
-        e.preventDefault();
-        const btn = formAdopcion.querySelector("button");
-        const originalText = btn.innerHTML;
-        btn.disabled = true; btn.textContent = "Procesando...";
-
-        // Datos del formulario
-        const nombre = document.getElementById("adoptanteNombre").value;
-        const tel = document.getElementById("adoptanteTel").value;
-        const mensaje = document.getElementById("adoptanteMensaje").value;
-        
-        // Datos ocultos
-        const petName = document.getElementById("modalPetName").value;
-        const shelterPhone = document.getElementById("modalShelterPhone").value;
-        const petId = document.getElementById("modalPetId").value;
-
-        try {
-            // A. Guardar en Firebase (Base de datos de Huella Consciente)
-            await addDoc(collection(db, "solicitudes"), {
-                mascota: petName,
-                mascotaId: petId,
-                adoptante: nombre,
-                telefono: tel,
-                motivo: mensaje,
-                fecha: serverTimestamp(),
-                estado: "pendiente"
-            });
-
-            // B. Incrementar contador de clics/interés en la mascota
-            updateDoc(doc(db, "mascotas", petId), { clics: increment(1) }).catch(err => console.error(err));
-
-            // C. El "BOT": Redirigir a WhatsApp con mensaje pre-armado
-            // El mensaje llega al refugio con los datos del interesado
-            const textoWsp = `Hola! Soy ${nombre}. Completé el formulario en Huella Consciente porque quiero adoptar a *${petName}*. \n\nMis datos:\n📞 ${tel}\n💬 Motivo: ${mensaje}`;
-            
-            const link = `https://wa.me/${shelterPhone}?text=${encodeURIComponent(textoWsp)}`;
-            
-            alert("¡Solicitud registrada! Ahora te llevaremos a WhatsApp para enviar el mensaje al refugio.");
-            window.open(link, '_blank');
-            
-            // Limpiar y cerrar
-            formAdopcion.reset();
-            cerrarModal();
-
-        } catch (error) {
-            console.error("Error al procesar:", error);
-            alert("Hubo un error de conexión, pero intentemos abrir WhatsApp igual.");
-            window.open(`https://wa.me/${shelterPhone}`, '_blank');
-        } finally {
-            btn.disabled = false; btn.innerHTML = originalText;
-        }
-    };
-}
 
 // ==========================================
 // FUNCIONES AUXILIARES (Galería, Filtros)
@@ -295,3 +212,13 @@ function capitalize(s) {
     if(s === "-") return "Desconocido"; 
     return s.charAt(0).toUpperCase() + s.slice(1); 
 }
+
+// ==========================================
+// CÓDIGO DEL MODAL Y WHATSAPP (Comentado)
+// ==========================================
+/*
+window.abrirAdopcion = (id, nombre, telefono) => { ... }
+window.cerrarModal = () => { ... }
+const formAdopcion = document.getElementById("formAdopcion");
+if(formAdopcion) { ... }
+*/
