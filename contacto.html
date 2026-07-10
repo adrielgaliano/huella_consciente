@@ -75,7 +75,12 @@
   </div>
 </div>
 
-
+  <!-- Reportar un refugio/rescatista -->
+  <div style="text-align:center; margin: 40px 0 20px;">
+    <a href="#" onclick="abrirReporte(); return false;" style="color:#b30000; font-weight:bold; text-decoration:underline; font-size:14px;">
+      ⚠️ ¿Tuviste un inconveniente con un refugio o rescatista? Reportalo acá
+    </a>
+  </div>
 
 <div class="faq-section">
     <h2>Preguntas Frecuentes</h2>
@@ -106,6 +111,37 @@
         <p>Como no tenemos sede única, te recomendamos ir a la sección <a href="refugios.html" style="color:var(--naranja); font-weight:bold;">Refugios</a> y contactar al que te quede más cerca para coordinar la entrega.</p>
       </details>
 
+    </div>
+  </div>
+
+  <!-- Modal de Reporte -->
+  <div id="modalReporte" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:5000; justify-content:center; align-items:center;">
+    <div style="background:white; padding:25px; border-radius:15px; width:90%; max-width:500px; position:relative;">
+      <span onclick="cerrarReporte()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+      <h2 style="color:#b30000; margin-bottom:10px;">Reportar un inconveniente</h2>
+      <p style="font-size:14px; color:#555;">Huella Consciente es un intermediario y revisa todos los reportes para mantener la comunidad segura. Recordá que, como aclaran nuestros <a href="terminos.html" target="_blank" style="color:#f68c1f;">Términos y Condiciones</a>, la relación de adopción es un acuerdo entre vos y el refugio.</p>
+
+      <form id="formReporte" style="display:flex; flex-direction:column; gap:10px; margin-top:15px;">
+        <select id="reporteRefugio" required style="padding:10px; border:1px solid #ddd; border-radius:5px;">
+          <option value="">Seleccioná el refugio o rescatista...</option>
+          <option value="La Casita de Lula">La Casita de Lula</option>
+          <option value="FUNDACION HOGAR ROUSI">FUNDACION HOGAR ROUSI</option>
+          <option value="Gatitos en adopción Mendoza">Gatitos en adopción Mendoza</option>
+          <option value="El Refugio de Diego">El Refugio de Diego</option>
+          <option value="Adopción Responsable Mendoza">Adopción Responsable Mendoza</option>
+          <option value="Fundación Jupakki">Fundación Jupakki</option>
+          <option value="Mua ONG">Mua ONG</option>
+          <option value="Otro / No lo encuentro en la lista">Otro / No lo encuentro en la lista</option>
+        </select>
+
+        <textarea id="reporteDetalle" rows="4" placeholder="Contanos qué sucedió, con la mayor cantidad de detalles posible" required style="padding:10px; border:1px solid #ddd; border-radius:5px;"></textarea>
+
+        <input type="text" id="reporteContacto" placeholder="Tu email o celular (opcional, por si necesitamos más info)" style="padding:10px; border:1px solid #ddd; border-radius:5px;">
+
+        <button type="submit" style="background:#b30000; color:white; border:none; padding:15px; border-radius:5px; font-weight:bold; font-size:16px; cursor:pointer;">
+          Enviar reporte
+        </button>
+      </form>
     </div>
   </div>
 
@@ -159,7 +195,6 @@
 
 
 
-
   <!-- Footer -->
 <footer>
   <div class="footer-logo">
@@ -184,11 +219,10 @@
     </div>
 
     <div>
-      <ul>
-        <li><a href="adoptar.html">Adopciones</a></li>
-        <li><a href="donaciones.html">Donaciones</a></li>
-        <li><a href="refugios.html">Refugios</a></li>
-      </ul>
+        <ul>
+          <li><a href="terminos.html">Términos y Condiciones</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
     </div>
   </div>
 
@@ -196,5 +230,6 @@
     © 2025 Huella Consciente - Todos los derechos reservados
   </div>
 </footer>
+<script type="module" src="js/reportes.js"></script>
 </body>
 </html>
