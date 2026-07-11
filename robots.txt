@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Páginas internas de administración: no indexar
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /elimin123.html
+
+Sitemap: https://huellaconsciente.com.ar/sitemap.xml
