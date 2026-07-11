@@ -2395,7 +2395,9 @@ nav a:hover {
     font-size: 16px;
     transition: transform 0.2s;
     z-index: 5;
-    display: flex; align-items: center; justify-content: center;
+    display: flex !important;
+    opacity: 1 !important;
+    align-items: center; justify-content: center;
 }
 .btn-poster:hover { transform: scale(1.1); background: #f68c1f; }
 
@@ -2839,31 +2841,3 @@ nav a:hover {
 .chat-window {
     height: 520px; /* Un poquito más alto para que entre el input cómodo */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
