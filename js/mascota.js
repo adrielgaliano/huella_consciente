@@ -53,15 +53,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                         <p style="font-size: 1.1rem; line-height: 1.8; color: #444; padding: 0 20px;">${data.descripcion}</p>
                         
-                        <button class="btn-adoptar" style="font-size: 1.2rem; padding: 15px 40px; margin-top: 25px;" onclick="abrirAdopcion('${mascotaId}', '${data.nombre}', '${data.refugioNombre}')">
-                            <i class="fas fa-heart"></i> ¡Quiero Adoptar a ${data.nombre}!
-                        </button>
+                        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:25px;">
+                            <button class="btn-adoptar" style="font-size: 1.2rem; padding: 15px 40px;" onclick="abrirAdopcion('${mascotaId}', '${data.nombre}', '${data.refugioNombre}')">
+                                <i class="fas fa-heart"></i> ¡Quiero Adoptar a ${data.nombre}!
+                            </button>
+                            <button type="button" id="btnCompartirMascota" style="font-size: 1.1rem; padding: 15px 25px; background:#4a2b17; color:white; border:none; border-radius:8px; cursor:pointer;">
+                                <i class="fas fa-share-nodes"></i> Compartir
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div style="text-align:center; margin-top: 20px;">
                     <a href="adoptar.html" style="color: #f68c1f; text-decoration: underline;">← Volver a ver más animales</a>
                 </div>
             `;
+
+            // Conectamos el botón de compartir (evita problemas de comillas al no pasar
+            // el texto dentro del HTML, sino directo desde el objeto "data")
+            const btnCompartir = document.getElementById("btnCompartirMascota");
+            if (btnCompartir && window.mostrarPoster) {
+                btnCompartir.onclick = () => {
+                    window.mostrarPoster(data.nombre, data.fotoUrl, data.refugioNombre, data.descripcion);
+                };
+            }
         } else {
             contenedor.innerHTML = "<h2 style='text-align:center;'>Lo sentimos, este peludito ya fue adoptado o no existe.</h2><p style='text-align:center;'><a href='adoptar.html'>Volver</a></p>";
         }

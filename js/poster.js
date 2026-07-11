@@ -90,19 +90,16 @@ function addCameraBtn(card) {
     if (card.querySelector(".btn-poster")) return;
     const btn = document.createElement("button");
     btn.className = "btn-poster";
-    btn.innerHTML = '<i class="fas fa-camera"></i>';
+    btn.title = "Compartir";
+    btn.innerHTML = '<i class="fas fa-share-nodes"></i>';
     btn.onclick = (e) => { e.preventDefault(); generarPoster(card); };
     card.appendChild(btn);
 }
 function generarPoster(card) {
-    const modal = document.querySelector(".poster-modal");
-    const canvasArea = document.getElementById("posterCanvasArea");
-    const downloadBtn = document.getElementById("downloadBtn");
-    
     // 1. OBTENER DATOS BÁSICOS
     const nombre = card.querySelector("h3").innerText;
     const imgUrl = card.querySelector("img").src;
-    
+
     // 2. OBTENER EL REFUGIO
     // Buscamos en la lista de atributos específicamente
     let refugioText = "Refugio Aliado";
@@ -114,32 +111,32 @@ function generarPoster(card) {
         }
     });
 
-    // 3. SELECCIONAR LOGO (Lógica del diccionario)
-    let logoUrl = LOGOS_REFUGIOS["default"]; 
-    for (const [key, url] of Object.entries(LOGOS_REFUGIOS)) {
-        if (key !== "default" && refugioText.includes(key)) {
-            logoUrl = url;
-            break;
-        }
-    }
-
-    // 4. OBTENER DESCRIPCIÓN (CORREGIDO)
-    let descripcionText = "";
-    
+    // 3. OBTENER DESCRIPCIÓN
     // Estrategia: La descripción suele ser el último párrafo <p> dentro de .pet-info
     // que NO sea un atributo de lista.
+    let descripcionText = "";
     const parrafos = card.querySelectorAll(".pet-info p");
-    
+
     parrafos.forEach(p => {
         const texto = p.innerText.trim();
-        // Filtros de seguridad:
-        // 1. Que no esté vacío.
-        // 2. Que no sea la línea de "Refugio:" (por si acaso está en un p)
-        // 3. Que no sea la línea de "Ubicación:"
         if(texto.length > 0 && !texto.includes("Refugio:") && !texto.includes("Ubicación:")) {
             descripcionText = texto;
         }
     });
+
+    mostrarPoster(nombre, imgUrl, refugioText, descripcionText);
+}
+
+// ==========================================
+// Función reusable: recibe los datos ya armados
+// (la usa tanto generarPoster() de arriba como mascota.html directamente)
+// ==========================================
+window.mostrarPoster = function(nombre, imgUrl, refugioText, descripcionText) {
+    const modal = document.querySelector(".poster-modal");
+    const canvasArea = document.getElementById("posterCanvasArea");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    refugioText = refugioText || "Refugio Aliado";
 
     // Si después de buscar no encontramos nada (o era texto vacío), usamos el default
     if (!descripcionText) {
@@ -149,6 +146,15 @@ function generarPoster(card) {
     // Cortamos si es excesivamente larga para que no rompa el diseño (más de 130 caracteres)
     if(descripcionText.length > 130) {
         descripcionText = descripcionText.substring(0, 130) + "...";
+    }
+
+    // 4. SELECCIONAR LOGO (Lógica del diccionario)
+    let logoUrl = LOGOS_REFUGIOS["default"];
+    for (const [key, url] of Object.entries(LOGOS_REFUGIOS)) {
+        if (key !== "default" && refugioText.includes(key)) {
+            logoUrl = url;
+            break;
+        }
     }
 
     // 5. RELLENAR PLANTILLA
@@ -163,14 +169,13 @@ function generarPoster(card) {
     canvasArea.innerHTML = '<div style="padding:30px; color:#666;">📸 Diseñando story...</div>';
 
     setTimeout(() => {
-        html2canvas(document.getElementById("insta-template"), { 
-            scale: 2, useCORS: true, backgroundColor: null 
+        html2canvas(document.getElementById("insta-template"), {
+            scale: 2, useCORS: true, backgroundColor: null
         }).then(canvas => {
             canvasArea.innerHTML = "";
             canvas.style.width = "100%";
             canvas.style.height = "auto";
-            // La clase ya no es necesaria para el tamaño, pero la dejamos por si acaso
-            canvas.className = "polaroid-anim"; 
+            canvas.className = "polaroid-anim";
             canvasArea.appendChild(canvas);
 
             downloadBtn.onclick = () => {
@@ -181,4 +186,4 @@ function generarPoster(card) {
             };
         });
     }, 500);
-}
+};
