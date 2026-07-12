@@ -932,16 +932,17 @@ nav ul.menu-center {
  /* === HEADER GENERAL === */
 /*========================*/
 header {
-  background: #d97745;
+  background: linear-gradient(115deg, #e08a53 0%, #d97745 35%, #7a4a2a 100%);
   color: white;
   display: flex;
   justify-content: space-between; /* logo a la izq - nav/hamburguesa a la der */
   align-items: center;
-  padding: 15px 30px;
-  position: relative;
+  padding: 16px 40px;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1000;
+  box-shadow: 0 4px 20px rgba(74, 43, 23, 0.25);
 }
 
 /* Logo */
@@ -956,8 +957,14 @@ header {
 
 /* Imagen del logo */
 .logo img {
-  height: 60px;
+  height: 52px;
   margin: 0;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
+}
+
+.logo a:hover img {
+  transform: scale(1.06) rotate(-3deg);
 }
 
 /* Logo en desktop: ícono + texto al lado */
@@ -965,20 +972,21 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   text-decoration: none;
 }
 
 /* Texto al lado del logo */
 .logo span {
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
   color: var(--beige);
   transition: color 0.3s ease;
 }
 
 .logo span:hover {
-  color: var(--marron); /* marrón en hover */
+  color: #f9d9c0; /* tono cálido claro en hover, más elegante que el marrón plano */
 }
 
 /* En mobile, ocultar el texto */
@@ -997,35 +1005,71 @@ nav {
   align-items: center;
   justify-content: center; /* centra los links en desktop */
   flex: 1; /* ocupa todo el espacio entre logo y botón hamburguesa */
-  gap: 20px;
+  gap: 30px;
 }
 
 nav a {
+  position: relative;
   text-decoration: none;
-  color: white;
-  font-weight: bold;
+  color: rgba(255,255,255,0.92);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  padding: 6px 2px;
   transition: color 0.3s ease;
 }
 
+/* Línea animada bajo el link */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--beige);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
 nav a:hover {
-  color: var(--marron); /* marrón en hover */
+  color: #ffffff;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Link de la página actual: siempre con la línea visible */
+nav a.active {
+  color: #ffffff;
+}
+
+nav a.active::after {
+  width: 100%;
+  background: #fff;
 }
 
 /* Botón Donar */
 .donar-btn {
   background: #3b2c20;
   color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: none;
+  padding: 9px 20px;
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.15);
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .donar-btn:hover {
-  background: white; /* tono más claro al pasar */
+  background: #2a2016;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.28);
 }
+
+.donar-btn a { color: white; text-decoration: none; }
 
 /* --- Estilos para móvil --- */
 .hamburger {
@@ -1042,7 +1086,7 @@ nav a:hover {
   z-index: 2000;
   top: 0;
   left: 0;
-  background-color: #d97745; /* mismo color que el header */
+  background: linear-gradient(160deg, #e08a53 0%, #7a4a2a 100%);
   overflow-x: hidden;
   transition: 0.4s;
   display: flex;
