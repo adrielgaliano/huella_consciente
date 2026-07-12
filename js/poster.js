@@ -59,9 +59,7 @@ function crearModalYTemplate() {
         </div>
 
         <div class="main-photo-frame">
-            <div class="photo-inner">
-                <img id="tpl-img" src="" crossorigin="anonymous">
-            </div>
+            <div class="photo-inner" id="tpl-img"></div>
         </div>
         
         <div class="animal-info">
@@ -143,9 +141,9 @@ window.mostrarPoster = function(nombre, imgUrl, refugioText, descripcionText) {
         descripcionText = "¡Busco un hogar lleno de amor!";
     }
 
-    // Cortamos si es excesivamente larga para que no rompa el diseño (más de 130 caracteres)
-    if(descripcionText.length > 130) {
-        descripcionText = descripcionText.substring(0, 130) + "...";
+    // Cortamos si es larga para que no rompa el diseño ni empuje el footer fuera del marco
+    if(descripcionText.length > 90) {
+        descripcionText = descripcionText.substring(0, 90) + "...";
     }
 
     // 4. SELECCIONAR LOGO (Lógica del diccionario)
@@ -161,7 +159,8 @@ window.mostrarPoster = function(nombre, imgUrl, refugioText, descripcionText) {
     document.getElementById("tpl-shelter").innerText = refugioText.toUpperCase();
     document.getElementById("tpl-name").innerText = nombre.toUpperCase();
     document.getElementById("tpl-desc").innerText = `"${descripcionText}"`;
-    document.getElementById("tpl-img").src = imgUrl;
+    const fotoEl = document.getElementById("tpl-img");
+    fotoEl.style.backgroundImage = `url('${imgUrl}')`;
     document.getElementById("tpl-shelter-logo").src = logoUrl;
 
     // 6. GENERAR IMAGEN
