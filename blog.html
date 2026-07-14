@@ -3,22 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donaciones - Mua ONG</title>
+  <title>Blog - Huella Consciente</title>
   <link rel="icon" href="images/Isotipo_sin_fondo.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQREM7ZJ3J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LQREM7ZJ3J');
-  </script>
+  <meta name="theme-color" content="#f68c1f">
 </head>
 <body>
-  <!-- Header -->
-<!-- Menú Desktop -->
+
+  <!-- Menú Desktop -->
   <header>
     <div class="logo">
       <a href="index.html">
@@ -52,17 +45,14 @@
         <a href="blog.html">Blog</a>
         <button class="donar-btn"><a href="donaciones.html">Donar 🐾</a></button>
     </nav>
-    <!-- EL ÍCONO DEL MENÚ MÓVIL ESTÁ AQUÍ -->
     <span class="hamburger" onclick="openNav()">&#9776;</span>
   </header>
 
   <!-- Menú overlay (Mobile) -->
   <div id="myNav" class="overlay">
     <span class="closebtn" onclick="closeNav()">&times;</span>
-    
     <a href="index.html">Inicio</a>
     
-    <!-- Acordeón Mobile: Adopciones -->
     <details class="mobile-dropdown">
         <summary>Adopciones <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
         <div class="mobile-dropdown-links">
@@ -72,7 +62,6 @@
         </div>
     </details>
 
-    <!-- Acordeón Mobile: Comunidad -->
     <details class="mobile-dropdown">
         <summary>Comunidad <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
         <div class="mobile-dropdown-links">
@@ -87,29 +76,30 @@
   </div>
   <script src="js/menu.js"></script>
 
-  <!-- Hero -->
-
-   <section class="hero">
-    <div class="hero-slider">
-      <div class="slide active" style="background-image: url('images/refugios/Mua.jpeg');"></div>
-    </div>
-    <div class="hero-content">
-      <h1>🐾 Mua ONG</h1>
-      <p>💜MANADA UNIDA POR LOS ANIMALES💜 Rescatamos, cuidamos y damos en adopción.</p>
-      <a href="#alias" class="btn-donar grande">Quiero donar ahora</a>
-    </div>
+  <!-- Cabecera del Blog -->
+  <section style="text-align: center; padding: 50px 20px; background-color: #fff8e1;">
+    <h1 style="color: var(--marron); font-size: 2.5rem; margin-bottom: 10px;">Huella Blog</h1>
+    <p style="font-size: 1.1rem; color: #555;">Consejos, novedades y todo lo que necesitás saber sobre bienestar animal.</p>
   </section>
 
-  <!-- Datos bancarios -->
-  <section class="donacion-detalle">
-    <h2>💳 Donación directa</h2>
-    <div class="alias-box">
-      <p><b>Alias Mercado Pago:</b> <span id="alias"></span></p>
-      <button onclick="copiarAlias()">Copiar alias</button>
-    </div>
-    <p><strong>CVU:</strong> </p>
-    <p><strong>CUIT/CUIL: </strong> </p>
+  <!-- Contenedor Principal del Blog -->
+  <section class="blog-container">
+      
+      <!-- Filtros de Categorías -->
+      <div class="blog-filters">
+          <button class="filter-btn active" onclick="filterBlog('todos')">Todos</button>
+          <button class="filter-btn" onclick="filterBlog('cuidados')">Cuidados</button>
+          <button class="filter-btn" onclick="filterBlog('noticias')">Noticias</button>
+          <button class="filter-btn" onclick="filterBlog('historias')">Historias</button>
+      </div>
+
+      <!-- Grilla de Artículos -->
+      <div class="blog-grid" id="blogGrid">
+          <p style="grid-column:1/-1; text-align:center; color:#777;">Cargando artículos...</p>
+      </div>
   </section>
+
+  <script type="module" src="js/blog-public.js"></script>
 
   <!-- Footer -->
   <footer>
@@ -117,7 +107,6 @@
       <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
       <h3>HUELLA CONSCIENTE</h3>
     </div>
-
     <div class="footer-links">
       <div>
         <h4>Encontranos:</h4>
@@ -125,7 +114,6 @@
         <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
         <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
       </div>
-
       <div>
         <ul>
           <li><a href="index.html">Inicio</a></li>
@@ -133,28 +121,35 @@
           <li><a href="Anunciantes.html">Anunciantes</a></li>
         </ul>
       </div>
-
       <div>
-        <ul>
-          <li><a href="terminos.html">Términos y Condiciones</a></li>
-          <li><a href="privacidad.html">Política de Privacidad</a></li>
-        </ul>
+          <ul>
+            <li><a href="terminos.html">Términos y Condiciones</a></li>
+            <li><a href="privacidad.html">Política de Privacidad</a></li>
+          </ul>
       </div>
     </div>
-
     <div class="copy">
-      © 2025 Huella Consciente - Todos los derechos reservados
+        © 2025 Huella Consciente - Todos los derechos reservados
     </div>
   </footer>
 
-  <!-- Script copiar alias -->
+  <!-- Script para filtrar el blog -->
   <script>
-    function copiarAlias() {
-      const alias = document.getElementById("alias").innerText;
-      navigator.clipboard.writeText(alias).then(() => {
-        alert("Alias copiado: " + alias);
-      });
-    }
+      function filterBlog(category) {
+          // Cambiar clase activa en los botones
+          document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+          event.target.classList.add('active');
+
+          // Mostrar/ocultar artículos
+          const cards = document.querySelectorAll('.blog-card');
+          cards.forEach(card => {
+              if (category === 'todos' || card.getAttribute('data-category') === category) {
+                  card.style.display = 'flex';
+              } else {
+                  card.style.display = 'none';
+              }
+          });
+      }
   </script>
 </body>
 </html>

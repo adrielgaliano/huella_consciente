@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Blog - Huella Consciente</title>
+    <link rel="icon" href="images/Isotipo_sin_fondo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
+        .header-panel { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f68c1f; }
+        .panel { background: #fff3e0; padding: 25px; border-radius: 10px; margin-bottom: 30px; border: 1px solid #ffe0b2; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .full-width { grid-column: span 2; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { cursor: pointer; }
+        .btn-submit { width:100%; padding:15px; background:#f68c1f; color:white; border:none; border-radius:5px; font-weight:bold; }
+        .btn-cancel { background: #999; margin-top: 10px; display: none; }
+
+        .my-pets { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        .pet-card-admin { border: 1px solid #ddd; padding: 10px; border-radius: 8px; background: white; position: relative; }
+        .pet-card-admin img { width: 100%; height: 160px; object-fit: cover; border-radius: 5px; }
+        .date-info { font-size: 11px; color: #777; margin-top: 5px; display: block; }
+        .card-actions button, .card-actions a { margin-top: 5px; width: 100%; padding: 8px; cursor: pointer; border: none; border-radius: 4px; color: white; box-sizing: border-box; }
+
+        /* Pestañas del panel */
+        .admin-tabs { display: flex; gap: 8px; margin-bottom: 25px; border-bottom: 2px solid #ffe0b2; flex-wrap: wrap; }
+        .admin-tab-btn {
+            background: none; border: none; padding: 12px 20px; font-weight: bold; font-size: 15px;
+            color: #8a6a52; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .admin-tab-btn.active { color: #f68c1f; border-bottom-color: #f68c1f; }
+        .admin-tab-content { display: none; }
+        .admin-tab-content.active { display: block; }
+
+        .access-denied { max-width: 500px; margin: 100px auto; text-align: center; padding: 30px; }
+    </style>
+</head>
+<body>
+    <div id="loadingMsg" style="text-align:center; margin-top: 50px;">
+        <img src="images/Isotipo_con_fondo.png" width="50" alt="...">
+        <p>Cargando panel...</p>
+    </div>
+
+    <div id="accessDenied" class="access-denied" style="display:none;">
+        <h2>🚫 Sin permisos</h2>
+        <p>Tu cuenta no tiene acceso al panel de Blog.</p>
+        <button id="btnLogoutDenied" style="padding:10px 20px; background:#333; color:white; border:none; border-radius:5px;">Cerrar Sesión</button>
+    </div>
+
+    <div class="container" id="blogAdminPanel" style="display:none;">
+        <div class="header-panel">
+            <div>
+                <h1 style="margin:0;">📝 Panel de Blog</h1>
+                <small id="userEmailDisplay">...</small>
+            </div>
+            <button id="btnLogout" style="padding:10px 20px; background:#333; color:white; border:none; border-radius:5px;">Cerrar Sesión</button>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="tab-blogs-lista" onclick="cambiarTab('tab-blogs-lista')">📋 Artículos Publicados</button>
+            <button class="admin-tab-btn" data-tab="tab-blogs-agregar" onclick="cambiarTab('tab-blogs-agregar')">➕ Nuevo Artículo</button>
+        </div>
+
+        <!-- ============ PESTAÑA: ARTÍCULOS PUBLICADOS ============ -->
+        <div id="tab-blogs-lista" class="admin-tab-content active">
+            <h3>📝 Artículos del Blog</h3>
+            <div id="blogsList" class="my-pets"></div>
+        </div>
+        <!-- ============ FIN PESTAÑA: ARTÍCULOS PUBLICADOS ============ -->
+
+        <!-- ============ PESTAÑA: NUEVO ARTÍCULO ============ -->
+        <div id="tab-blogs-agregar" class="admin-tab-content">
+            <div class="panel">
+                <h2 id="blogFormTitle">➕ Nuevo Artículo</h2>
+                <form id="addBlogForm">
+                    <input type="hidden" id="blog_editId">
+                    <input type="hidden" id="blog_existingImagenUrl">
+                    <div class="form-grid">
+                        <input type="text" id="blog_titulo" placeholder="Título del artículo" required class="full-width">
+
+                        <select id="blog_categoria" required>
+                            <option value="cuidados">Cuidados</option>
+                            <option value="noticias">Noticias</option>
+                            <option value="historias">Historias</option>
+                        </select>
+                        <input type="text" id="blog_autor" placeholder="Autor (opcional, por defecto: Equipo Huella Consciente)">
+
+                        <div class="full-width">
+                            <label style="font-size:12px;">🖼️ Imagen de portada</label>
+                            <input type="file" id="blog_imagen" accept="image/*">
+                            <small id="blog_imagenHelp" style="display:none; color:green;">(Si no subís una nueva, se mantiene la actual)</small>
+                        </div>
+
+                        <div class="full-width">
+                            <textarea id="blog_resumen" placeholder="Resumen breve (se muestra en la tarjeta del blog)" rows="2" required></textarea>
+                        </div>
+
+                        <div class="full-width">
+                            <label style="font-size:12px;">
+                                Contenido del artículo. Formato admitido: dejá una línea en blanco entre párrafos.
+                                Usá <code>## Texto</code> para un subtítulo, <code>- Texto</code> para viñetas y <code>&gt; Texto</code> para una cita destacada.
+                            </label>
+                            <textarea id="blog_contenido" placeholder="Escribí el artículo completo acá..." rows="12" required></textarea>
+                        </div>
+
+                        <div class="full-width">
+                            <button type="submit" id="btnSubmitBlog" class="btn-submit">PUBLICAR ARTÍCULO</button>
+                            <button type="button" id="btnCancelBlogEdit" class="btn-submit btn-cancel">CANCELAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- ============ FIN PESTAÑA: NUEVO ARTÍCULO ============ -->
+    </div>
+
+    <script>
+        function cambiarTab(tabId) {
+            document.querySelectorAll(".admin-tab-content").forEach(el => el.classList.remove("active"));
+            document.querySelectorAll(".admin-tab-btn").forEach(el => el.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active");
+            document.querySelector(`.admin-tab-btn[data-tab="${tabId}"]`).classList.add("active");
+        }
+        window.cambiarTab = cambiarTab;
+    </script>
+    <script type="module" src="js/blog-admin.js"></script>
+</body>
+</html>

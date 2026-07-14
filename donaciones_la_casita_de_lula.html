@@ -18,6 +18,7 @@
 </head>
 <body>
   <!-- Header -->
+ <!-- Menú Desktop -->
   <header>
     <div class="logo">
       <a href="index.html">
@@ -26,25 +27,63 @@
       </a>
     </div>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="adoptar.html">Adoptá</a>
-      <a href="Anunciantes.html">Aliados Estratégicos</a>
-      <a href="refugios.html">Refugios</a>
-      <a href="contacto.html">Contacto</a>
-      <button class="donar-btn"><a href="donaciones.html">Donar 🤎</a></button>
+        <a href="index.html">Inicio</a>
+        
+        <!-- Dropdown: Adopciones -->
+        <div class="dropdown">
+            <button class="dropbtn">Adopciones <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></button>
+            <div class="dropdown-content">
+                <a href="adoptar.html">Adoptá</a>
+                <a href="refugios.html">Refugios</a>
+                <a href="adoptados.html">Historias de éxito</a>
+            </div>
+        </div>
+
+        <!-- Dropdown: Comunidad -->
+        <div class="dropdown">
+            <button class="dropbtn">Comunidad <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></button>
+            <div class="dropdown-content">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="Anunciantes.html">Aliados Estratégicos</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+
+        <a href="blog.html">Blog</a>
+        <button class="donar-btn"><a href="donaciones.html">Donar 🐾</a></button>
     </nav>
-    <span class="hamburger" onclick="openNav()">☰</span>
+    <!-- EL ÍCONO DEL MENÚ MÓVIL ESTÁ AQUÍ -->
+    <span class="hamburger" onclick="openNav()">&#9776;</span>
   </header>
 
-  <!-- Menú overlay -->
+  <!-- Menú overlay (Mobile) -->
   <div id="myNav" class="overlay">
     <span class="closebtn" onclick="closeNav()">&times;</span>
-      <a href="index.html">Inicio</a>
-      <a href="adoptar.html">Adoptá</a>
-      <a href="Anunciantes.html">Aliados Estratégicos</a>
-      <a href="refugios.html">Refugios</a>
-      <a href="contacto.html">Contacto</a>
-    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🤎</a></button>
+    
+    <a href="index.html">Inicio</a>
+    
+    <!-- Acordeón Mobile: Adopciones -->
+    <details class="mobile-dropdown">
+        <summary>Adopciones <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
+        <div class="mobile-dropdown-links">
+            <a href="adoptar.html">Adoptá</a>
+            <a href="refugios.html">Refugios</a>
+            <a href="adoptados.html">Historias de éxito</a>
+        </div>
+    </details>
+
+    <!-- Acordeón Mobile: Comunidad -->
+    <details class="mobile-dropdown">
+        <summary>Comunidad <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
+        <div class="mobile-dropdown-links">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="Anunciantes.html">Aliados Estratégicos</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </details>
+
+    <a href="blog.html">Blog</a>
+    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🐾</a></button>
   </div>
   <script src="js/menu.js"></script>
 

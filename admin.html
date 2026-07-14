@@ -6,6 +6,7 @@
     <title>Panel de Gestión - Huella Consciente</title>
     <link rel="icon" href="images/Isotipo_sin_fondo.png">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         .container { max-width: 900px; margin: 0 auto; padding: 20px; font-family: sans-serif; }
         .header-panel { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #f68c1f; }
@@ -31,6 +32,43 @@
         
         .adoptado-card { opacity: 0.7; background: #f9f9f9; border: 1px dashed #999; }
         .card-actions button { margin-top: 5px; width: 100%; padding: 8px; cursor: pointer; border: none; border-radius: 4px; color: white; }
+
+        /* Pestañas del panel */
+        .admin-tabs { display: flex; gap: 8px; margin-bottom: 25px; border-bottom: 2px solid #ffe0b2; flex-wrap: wrap; }
+        .admin-tab-btn {
+            background: none; border: none; padding: 12px 20px; font-weight: bold; font-size: 15px;
+            color: #8a6a52; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .admin-tab-btn.active { color: #f68c1f; border-bottom-color: #f68c1f; }
+        .admin-tab-content { display: none; }
+        .admin-tab-content.active { display: block; }
+
+        /* Lista negra */
+        .blacklist-entry {
+            background: #fff; border: 1px solid #f3b3ab; border-left: 5px solid #d32f2f;
+            border-radius: 8px; padding: 15px 18px; margin-bottom: 12px;
+        }
+        .blacklist-entry h4 { margin: 0 0 6px 0; color: #b71c1c; }
+        .blacklist-entry .meta { font-size: 12px; color: #888; margin-top: 8px; }
+        .blacklist-warning {
+            background: #fdecea; border: 1px solid #f5c6cb; color: #7a1f1a;
+            padding: 12px 16px; border-radius: 8px; font-size: 13px; margin-bottom: 20px;
+        }
+
+        /* Estadísticas */
+        .stat-card {
+            background: #fff; border-radius: 10px; padding: 20px; text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06); border-top: 4px solid #f68c1f;
+        }
+        .stat-card .stat-num { font-size: 32px; font-weight: 900; color: #4a2b17; }
+        .stat-card .stat-label { font-size: 13px; color: #777; margin-top: 5px; }
+
+        /* Alerta de espera prolongada */
+        .waiting-alert {
+            background: #d32f2f; color: white; font-size: 11px; font-weight: bold;
+            padding: 4px 8px; border-radius: 4px; display: inline-block; margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +86,16 @@
             <button id="btnLogout" style="padding:10px 20px; background:#333; color:white; border:none; border-radius:5px;">Cerrar Sesión</button>
         </div>
 
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="tab-mascotas" onclick="cambiarTab('tab-mascotas')">📋 Mascotas Publicadas</button>
+            <button class="admin-tab-btn" data-tab="tab-agregar" onclick="cambiarTab('tab-agregar')">➕ Añadir Mascota</button>
+            <button class="admin-tab-btn" data-tab="tab-listanegra" onclick="cambiarTab('tab-listanegra')">🚫 Lista Negra</button>
+            <button class="admin-tab-btn" data-tab="tab-perfil" onclick="cambiarTab('tab-perfil')">🏠 Mi Perfil</button>
+            <button class="admin-tab-btn" data-tab="tab-stats" onclick="cambiarTab('tab-stats')">📊 Estadísticas</button>
+        </div>
+
+        <!-- ============ PESTAÑA: AÑADIR MASCOTA ============ -->
+        <div id="tab-agregar" class="admin-tab-content">
         <div class="panel">
             <h2 id="formTitle">➕ Cargar Mascota</h2>
             <form id="addPetForm">
@@ -90,7 +138,7 @@
                         <option value="grande">Grande</option>
                     </select>
                     
-                    <input type="number" id="telefonoWsp" placeholder="WhatsApp o agregar 0000" required>
+                    <input type="number" id="telefonoWsp" placeholder="WhatsApp (Agregar 549 + codigo de area ej: 54926155555555)" required>
                     <input type="text" id="ubicacion" placeholder="Ubicación" value="Mendoza">
 
                     <div class="full-width tags-section">
@@ -127,12 +175,103 @@
                 </div>
             </form>
         </div>
+        </div>
+        <!-- ============ FIN PESTAÑA: AÑADIR MASCOTA ============ -->
 
-        <h3>📋 En Adopción</h3>
-        <div id="petsList" class="my-pets"></div>
-        
-        <h3>🎉 Historial Adoptados</h3>
-        <div id="adoptedList" class="my-pets"></div>
+        <!-- ============ PESTAÑA: MASCOTAS PUBLICADAS ============ -->
+        <div id="tab-mascotas" class="admin-tab-content active">
+            <h3>📋 En Adopción</h3>
+            <div id="petsList" class="my-pets"></div>
+
+            <h3>🎉 Historial Adoptados</h3>
+            <div id="adoptedList" class="my-pets"></div>
+        </div>
+        <!-- ============ FIN PESTAÑA: MASCOTAS PUBLICADAS ============ -->
+
+        <!-- ============ PESTAÑA: LISTA NEGRA ============ -->
+        <div id="tab-listanegra" class="admin-tab-content">
+            <div class="blacklist-warning">
+                ⚠️ Esta lista es <strong>compartida entre todos los refugios</strong> con acceso al panel. Se usa para dejar constancia de personas que, por algún motivo justificado, no deberían recibir un animal en adopción. Cárguenla con responsabilidad: el motivo debe ser concreto y verificable.
+            </div>
+
+            <div class="panel">
+                <h2>➕ Agregar a la Lista Negra</h2>
+                <form id="formListaNegra">
+                    <div class="form-grid">
+                        <input type="text" id="ln_nombre" placeholder="Nombre completo" required>
+                        <input type="text" id="ln_dni" placeholder="DNI (opcional)">
+                        <input type="text" id="ln_telefono" placeholder="Teléfono (opcional)">
+                        <select id="ln_reportadoPor" required>
+                            <option value="">Tu refugio (quién reporta)...</option>
+                            <option value="La Casita de Lula">La Casita de Lula</option>
+                            <option value="FUNDACION HOGAR ROUSI">FUNDACION HOGAR ROUSI</option>
+                            <option value="Gatitos en adopción Mendoza">Gatitos en adopción Mendoza</option>
+                            <option value="El Refugio de Diego">El Refugio de Diego</option>
+                            <option value="Adopción Responsable Mendoza">Adopción Responsable Mendoza</option>
+                            <option value="Fundación Jupakki">Fundación Jupakki</option>
+                            <option value="Mua ONG">Mua ONG</option>
+                        </select>
+                        <div class="full-width">
+                            <textarea id="ln_motivo" placeholder="Motivo (sé específico: qué pasó, cuándo, con qué mascota)" rows="3" required></textarea>
+                        </div>
+                        <div class="full-width">
+                            <button type="submit" id="btnSubmitLista" class="btn-submit" style="background:#b71c1c;">AGREGAR A LA LISTA</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <h3>🚫 Personas reportadas</h3>
+            <input type="text" id="ln_buscador" placeholder="🔎 Buscar por nombre, teléfono o DNI..." style="margin-bottom:15px;">
+            <div id="listaNegraContainer"></div>
+        </div>
+        <!-- ============ FIN PESTAÑA: LISTA NEGRA ============ -->
+
+        <!-- ============ PESTAÑA: MI PERFIL ============ -->
+        <div id="tab-perfil" class="admin-tab-content">
+            <div class="panel">
+                <h2>🏠 Perfil del Refugio</h2>
+                <p style="font-size:13px; color:#777; margin-top:-10px;">Esta información se usará más adelante para mostrar tu refugio en la web pública.</p>
+                <form id="formPerfil">
+                    <div class="form-grid">
+                        <select id="pf_refugioNombre" required>
+                            <option value="">Tu Refugio...</option>
+                            <option value="La Casita de Lula">La Casita de Lula</option>
+                            <option value="FUNDACION HOGAR ROUSI">FUNDACION HOGAR ROUSI</option>
+                            <option value="Gatitos en adopción Mendoza">Gatitos en adopción Mendoza</option>
+                            <option value="El Refugio de Diego">El Refugio de Diego</option>
+                            <option value="Adopción Responsable Mendoza">Adopción Responsable Mendoza</option>
+                            <option value="Fundación Jupakki">Fundación Jupakki</option>
+                            <option value="Mua ONG">Mua ONG</option>
+                        </select>
+                        <input type="text" id="pf_horario" placeholder="Horario de contacto (ej: Lun a Vie 9 a 18hs)">
+                        <input type="text" id="pf_instagram" placeholder="Instagram (usuario, sin @)">
+                        <input type="text" id="pf_facebook" placeholder="Link de Facebook">
+                        <input type="text" id="pf_whatsappPublico" placeholder="WhatsApp público (549...)">
+                        <div>
+                            <label style="font-size:12px;">Logo del refugio</label>
+                            <input type="file" id="pf_logo" accept="image/*">
+                            <small id="pf_logoHelp" style="display:none; color:green; font-size:12px;">(Si no subís uno nuevo, se mantiene el actual)</small>
+                        </div>
+                        <div class="full-width">
+                            <textarea id="pf_bio" placeholder="Contanos sobre tu refugio: historia, misión, a qué animales ayudan..." rows="4"></textarea>
+                        </div>
+                        <div class="full-width">
+                            <button type="submit" id="btnSubmitPerfil" class="btn-submit">GUARDAR PERFIL</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- ============ FIN PESTAÑA: MI PERFIL ============ -->
+
+        <!-- ============ PESTAÑA: ESTADÍSTICAS ============ -->
+        <div id="tab-stats" class="admin-tab-content">
+            <div id="statsContainer" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:18px;">
+                <p style="color:#888;">Cargando estadísticas...</p>
+            </div>
+        </div>
+        <!-- ============ FIN PESTAÑA: ESTADÍSTICAS ============ -->
     </div>
 
     <script>
@@ -141,7 +280,15 @@
             document.getElementById("fecha").style.display = m === "fecha" ? "block" : "none";
             document.getElementById("edadCategoria").style.display = m === "categoria" ? "block" : "none";
         }
+
+        function cambiarTab(tabId) {
+            document.querySelectorAll(".admin-tab-content").forEach(el => el.classList.remove("active"));
+            document.querySelectorAll(".admin-tab-btn").forEach(el => el.classList.remove("active"));
+            document.getElementById(tabId).classList.add("active");
+            document.querySelector(`.admin-tab-btn[data-tab="${tabId}"]`).classList.add("active");
+        }
     </script>
     <script type="module" src="js/admin.js"></script>
+    <script src="js/poster.js"></script>
 </body>
 </html>
