@@ -2873,3 +2873,443 @@ nav a.active::after {
 .chat-window {
     height: 520px; /* Un poquito más alto para que entre el input cómodo */
 }
+
+
+
+
+
+/* =========================================
+   ESTILOS DROPDOWN (DESKTOP)
+========================================= */
+.dropdown {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.dropdown .dropbtn {
+    /* Mismo estilo que los <a> de la nav (Inicio, Blog) */
+    position: relative;
+    font-family: inherit;
+    text-decoration: none;
+    color: rgba(255,255,255,0.92);
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    padding: 6px 2px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* Misma línea animada bajo el botón que tienen los links normales */
+.dropdown .dropbtn::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: var(--beige);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.dropdown:hover .dropbtn {
+    color: #ffffff; /* Mismo efecto hover que los links normales, sin cambiar a naranja */
+}
+
+.dropdown:hover .dropbtn::after {
+    width: calc(100% - 4px);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.15);
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    padding: 5px 0;
+}
+
+.dropdown-content a {
+    color: #444 !important; /* Forzamos color oscuro para que se lea sobre el fondo blanco del menú desplegable */
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 15px; /* Un poco más chico que el menú principal */
+    font-weight: normal; /* Sin negrita para que el menú luzca más limpio */
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #fff3e0;
+    color: var(--naranja) !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* =========================================
+   ESTILOS ACORDEÓN (MOBILE OVERLAY)
+========================================= */
+.mobile-dropdown {
+    width: 100%;
+    text-align: center;
+}
+
+.mobile-dropdown summary {
+    /* Mismo estilo que los <a> del menú móvil (Inicio, Blog) */
+    font-family: inherit;
+    font-size: 1.5rem;
+    font-weight: normal;
+    color: #fff !important;
+    padding: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+/* Oculta flecha en Safari */
+.mobile-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+/* Mismo efecto hover que los links normales del menú móvil */
+.mobile-dropdown summary:hover,
+.mobile-dropdown[open] summary {
+    color: #f9b949 !important;
+    opacity: 1;
+}
+
+.mobile-dropdown-links {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.15); /* Fondo semitransparente para enmarcar los sub-links */
+    padding: 15px;
+    border-radius: 12px;
+    width: 80%;
+    margin: 0 auto 15px auto;
+}
+
+.mobile-dropdown-links a {
+    font-size: 20px !important; /* Sub-links ligeramente más chicos que el título principal */
+    font-weight: normal !important; /* Sin negrita para mantener jerarquía visual */
+    margin-bottom: 15px !important;
+    color: #fff !important; /* Aseguramos que se lean en blanco */
+}
+
+.mobile-dropdown-links a:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILOS DEL BLOG
+========================================= */
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+/* Filtros */
+.blog-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 2px solid var(--naranja);
+    color: var(--naranja);
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--naranja);
+    color: white;
+}
+
+/* Grilla de artículos */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta de artículo */
+.blog-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.blog-img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.blog-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.blog-badge {
+    align-self: flex-start;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.badge-cuidados { background-color: #4CAF50; } /* Verde */
+.badge-noticias { background-color: var(--naranja); } /* Naranja del sitio */
+.badge-historias { background-color: #9C27B0; } /* Púrpura */
+
+.blog-content h3 {
+    font-size: 1.25rem;
+    color: var(--marron);
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+}
+
+.blog-date {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.blog-excerpt {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.blog-read-more {
+    color: var(--naranja);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+}
+
+.blog-read-more:hover {
+    color: var(--marron);
+}
+
+
+
+
+/* =========================================
+   ESTILOS DE LECTURA DEL ARTÍCULO
+========================================= */
+
+/* Hero del Artículo */
+.article-hero {
+    width: 100%;
+    min-height: 40vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+}
+
+.article-hero-content {
+    max-width: 800px;
+}
+
+.article-hero-content h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 15px;
+    color: #f1f1f1;
+    flex-wrap: wrap;
+}
+
+/* Cuerpo del artículo */
+.article-body {
+    padding: 60px 20px;
+    background-color: #fafafa;
+}
+
+.article-content {
+    max-width: 760px; /* Ancho ideal para la lectura */
+    margin: 0 auto;
+    background: white;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.article-content .lead {
+    font-size: 1.3rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.article-content h2 {
+    font-size: 1.8rem;
+    color: var(--naranja);
+    margin: 40px 0 20px;
+}
+
+.article-content p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.article-content ul {
+    margin-bottom: 25px;
+    padding-left: 20px;
+}
+
+.article-content li {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+/* Citas (Blockquotes) */
+.article-content blockquote {
+    background: #fff3e0;
+    border-left: 5px solid var(--naranja);
+    margin: 40px 0;
+    padding: 25px 30px;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--marron);
+    border-radius: 0 8px 8px 0;
+}
+
+/* Botones para compartir */
+.article-share {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: bold;
+    color: #666;
+}
+
+.share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+}
+
+.share-btn.facebook { background-color: #3b5998; }
+.share-btn.twitter { background-color: #000; } /* X / Twitter */
+.share-btn.whatsapp { background-color: #25d366; }
+
+/* Responsive para el artículo */
+@media (max-width: 768px) {
+    .article-hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .article-content {
+        padding: 30px 20px;
+    }
+    
+    .article-content .lead {
+        font-size: 1.15rem;
+    }
+    
+    .article-content blockquote {
+        font-size: 1.2rem;
+        padding: 20px;
+    }
+}
