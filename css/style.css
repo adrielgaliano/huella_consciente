@@ -3313,3 +3313,127 @@ nav a.active::after {
         padding: 20px;
     }
 }
+/* ============ Chips de filtro rápido (estilo PetMatch) en adoptar.html ============ */
+.chip-filter {
+    background: #fff;
+    border: 2px solid #ffd9b3;
+    color: #4a2b17;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.chip-filter:hover {
+    border-color: #f68c1f;
+    transform: translateY(-2px);
+}
+.chip-filter.active {
+    background: #f68c1f;
+    border-color: #f68c1f;
+    color: white;
+    box-shadow: 0 4px 12px rgba(246,140,31,0.35);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.prensa {
+  padding: 50px 20px;
+  background: #ffffff;
+  text-align: left;
+}
+.prensa-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+.prensa h2 {
+  color: #1a1a2e;
+  margin-bottom: 25px;
+  font-size: 1.7rem;
+}
+.prensa-scroll {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.prensa-scroll::-webkit-scrollbar { display: none; }
+
+.prensa-card {
+  background: #f2f2f4;
+  border-radius: 14px;
+  padding: 22px;
+  min-width: 240px;
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.prensa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+.prensa-card-logo {
+  height: 26px;
+  max-width: 130px;
+  object-fit: contain;
+  object-position: left;
+  filter: grayscale(100%);
+  margin-bottom: 18px;
+  display: block;
+}
+.prensa-card p {
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: #222;
+  max-width: none;
+  text-align: left;
+}
+.prensa-card-cta {
+  font-size: 0.9rem;
+  color: #888;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.prensa-card:hover .prensa-card-cta { color: var(--naranja); }
+
+.prensa-arrows {
+  display: none;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+.prensa-arrow {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 1px solid #ddd; background: white;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: #333; font-size: 16px;
+  transition: background 0.2s;
+}
+.prensa-arrow:hover { background: #f2f2f4; }
+
+@media (max-width: 900px) {
+  .prensa-arrows { display: flex; }
+}
