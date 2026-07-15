@@ -199,12 +199,26 @@ function activarFiltros() {
 
     inputs.forEach(i => i.addEventListener("input", filtrar));
     
-    const params = new URLSearchParams(window.location.search);
-    const refugioPreseleccionado = params.get("refugio");
-    if (refugioPreseleccionado && shelterSelect) {
-        shelterSelect.value = refugioPreseleccionado;
-        filtrar();
-    }
+const params = new URLSearchParams(window.location.search);
+const refugioPreseleccionado = params.get("refugio");
+const animalPreseleccionado = params.get("animal");
+const edadPreseleccionada = params.get("age");
+
+if (refugioPreseleccionado && shelterSelect) {
+    shelterSelect.value = refugioPreseleccionado;
+}
+const filterAnimalEl = document.getElementById("filterAnimal");
+if (animalPreseleccionado && filterAnimalEl) {
+    filterAnimalEl.value = animalPreseleccionado;
+}
+const filterAgeEl = document.getElementById("filterAge");
+if (edadPreseleccionada && filterAgeEl) {
+    filterAgeEl.value = edadPreseleccionada;
+}
+if (refugioPreseleccionado || animalPreseleccionado || edadPreseleccionada) {
+    if (filtersMenu) filtersMenu.classList.remove("oculto");
+    filtrar();
+}
 }
 
 function capitalize(s) { 

@@ -366,6 +366,8 @@ window.borrarDeListaNegra = async (id) => {
 // ==========================================
 // PERFIL DEL REFUGIO
 // ==========================================
+let planesDonacion = []; // array en memoria mientras se edita el perfil
+
 async function cargarPerfil() {
     try {
         const snap = await getDoc(doc(db, "perfiles_refugio", user.uid));
@@ -375,14 +377,66 @@ async function cargarPerfil() {
             document.getElementById("pf_horario").value = d.horario || "";
             document.getElementById("pf_instagram").value = d.instagram || "";
             document.getElementById("pf_facebook").value = d.facebook || "";
-            document.getElementById("pf_whatsappPublico").value = d.whatsappPublico || "";
+            document.getElementById("pf_tiktok").value = d.tiktok || "";
             document.getElementById("pf_bio").value = d.bio || "";
             if (d.logoUrl) document.getElementById("pf_logoHelp").style.display = "block";
+
+            if (d.aliasPrincipal) {
+                document.getElementById("al_plataforma").value = d.aliasPrincipal.plataforma || "Mercado Pago";
+                document.getElementById("al_alias").value = d.aliasPrincipal.alias || "";
+                document.getElementById("al_titular").value = d.aliasPrincipal.titular || "";
+            }
+
+            planesDonacion = Array.isArray(d.planesDonacion) ? d.planesDonacion : [];
+            renderizarPlanesDonacion();
         }
     } catch (err) {
         console.error("Error cargando perfil:", err);
     }
 }
+
+function renderizarPlanesDonacion() {
+    const cont = document.getElementById("donationMethodsList");
+    if (!cont) return;
+
+    if (planesDonacion.length === 0) {
+        cont.innerHTML = "<p style='color:#888; font-size:13px;'>Todavía no cargaste ningún plan mensual.</p>";
+        return;
+    }
+
+    cont.innerHTML = planesDonacion.map((m, i) => `
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#f9f9f9; border:1px solid #eee; border-radius:6px; padding:10px 14px; margin-bottom:8px;">
+            <div style="font-size:14px;">
+                <strong>${m.titulo}</strong> — <a href="${m.link}" target="_blank" style="color:#2196F3;">${m.link}</a>
+            </div>
+            <a href="#" onclick="quitarPlanDonacion(${i}); return false;" style="color:#d32f2f; font-weight:bold;">quitar</a>
+        </div>
+    `).join("");
+}
+
+window.quitarPlanDonacion = (i) => {
+    planesDonacion.splice(i, 1);
+    renderizarPlanesDonacion();
+};
+
+document.getElementById("btnAgregarMetodo")?.addEventListener("click", () => {
+    const titulo = document.getElementById("dm_titulo").value.trim();
+    const link = document.getElementById("dm_link").value.trim();
+
+    if (!titulo || !link) {
+        alert("Completá el título y el link antes de agregar.");
+        return;
+    }
+    if (!/^https?:\/\//i.test(link)) {
+        alert("El link tiene que empezar con http:// o https://");
+        return;
+    }
+
+    planesDonacion.push({ titulo, link });
+    document.getElementById("dm_titulo").value = "";
+    document.getElementById("dm_link").value = "";
+    renderizarPlanesDonacion();
+});
 
 document.getElementById("formPerfil")?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -400,14 +454,23 @@ document.getElementById("formPerfil")?.addEventListener("submit", async (e) => {
             if (nuevaUrl) logoUrl = nuevaUrl;
         }
 
+        const aliasAlias = document.getElementById("al_alias").value.trim();
+        const aliasPrincipal = aliasAlias ? {
+            plataforma: document.getElementById("al_plataforma").value,
+            alias: aliasAlias,
+            titular: document.getElementById("al_titular").value.trim()
+        } : null;
+
         await setDoc(doc(db, "perfiles_refugio", user.uid), {
             refugioNombre: document.getElementById("pf_refugioNombre").value,
             horario: document.getElementById("pf_horario").value,
             instagram: document.getElementById("pf_instagram").value,
             facebook: document.getElementById("pf_facebook").value,
-            whatsappPublico: document.getElementById("pf_whatsappPublico").value,
+            tiktok: document.getElementById("pf_tiktok").value,
             bio: document.getElementById("pf_bio").value,
             logoUrl: logoUrl,
+            aliasPrincipal: aliasPrincipal,
+            planesDonacion: planesDonacion,
             actualizadoPor: user.uid,
             actualizadoEn: serverTimestamp()
         }, { merge: true });
