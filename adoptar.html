@@ -164,6 +164,24 @@
 
 <script type="module" src="js/adoptar.js"></script>
 
+<script>
+    document.querySelectorAll(".chip-filter").forEach(chip => {
+        chip.addEventListener("click", () => {
+            document.querySelectorAll(".chip-filter").forEach(c => c.classList.remove("active"));
+            chip.classList.add("active");
+
+            const filterAnimal = document.getElementById("filterAnimal");
+            const filterAge = document.getElementById("filterAge");
+
+            filterAnimal.value = chip.dataset.animal || "";
+            filterAge.value = chip.dataset.age || "";
+
+            filterAnimal.dispatchEvent(new Event("input"));
+            filterAge.dispatchEvent(new Event("input"));
+        });
+    });
+</script>
+
 
 
 

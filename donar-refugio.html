@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donar a un Refugio - Huella Consciente</title>
+  <link rel="icon" href="images/Isotipo_sin_fondo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <!-- Menú Desktop -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/Isotipo_sin_fondo.png" alt="Huella Consciente" />
+        <span>Huella Consciente</span>
+      </a>
+    </div>
+    <nav>
+        <a href="index.html">Inicio</a>
+        
+        <!-- Dropdown: Adopciones -->
+        <div class="dropdown">
+            <button class="dropbtn">Adopciones <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></button>
+            <div class="dropdown-content">
+                <a href="adoptar.html">Adoptá</a>
+                <a href="refugios.html">Refugios</a>
+                <a href="adoptados.html">Historias de éxito</a>
+            </div>
+        </div>
+
+        <!-- Dropdown: Comunidad -->
+        <div class="dropdown">
+            <button class="dropbtn">Comunidad <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></button>
+            <div class="dropdown-content">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="Anunciantes.html">Aliados Estratégicos</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </div>
+
+        <a href="blog.html">Blog</a>
+        <button class="donar-btn"><a href="donaciones.html">Donar 🐾</a></button>
+    </nav>
+    <!-- EL ÍCONO DEL MENÚ MÓVIL ESTÁ AQUÍ -->
+    <span class="hamburger" onclick="openNav()">&#9776;</span>
+  </header>
+
+  <!-- Menú overlay (Mobile) -->
+  <div id="myNav" class="overlay">
+    <span class="closebtn" onclick="closeNav()">&times;</span>
+    
+    <a href="index.html">Inicio</a>
+    
+    <!-- Acordeón Mobile: Adopciones -->
+    <details class="mobile-dropdown">
+        <summary>Adopciones <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
+        <div class="mobile-dropdown-links">
+            <a href="adoptar.html">Adoptá</a>
+            <a href="refugios.html">Refugios</a>
+            <a href="adoptados.html">Historias de éxito</a>
+        </div>
+    </details>
+
+    <!-- Acordeón Mobile: Comunidad -->
+    <details class="mobile-dropdown">
+        <summary>Comunidad <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
+        <div class="mobile-dropdown-links">
+            <a href="nosotros.html">Nosotros</a>
+            <a href="Anunciantes.html">Aliados Estratégicos</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+    </details>
+
+    <a href="blog.html">Blog</a>
+    <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🐾</a></button>
+  </div>
+
+  <script src="js/menu.js"></script>
+
+
+  <section style="max-width: 750px; margin: 0 auto; padding: 60px 20px 60px;">
+    <div id="donarContenido">
+      <p style="text-align:center; color:#888;">Cargando información del refugio...</p>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
+    <h3>HUELLA CONSCIENTE</h3>
+  </div>
+
+  <div class="footer-links">
+    <div>
+      <h4>Encontranos:</h4>
+      <a href="https://www.tiktok.com/@huellaconsciente.oficial"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="Anunciantes.html">Anunciantes</a></li>
+      </ul>
+    </div>
+
+    <div>
+        <ul>
+          <li><a href="terminos.html">Términos y Condiciones</a></li>
+          <li><a href="privacidad.html">Política de Privacidad</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="copy">
+    © 2025 Huella Consciente - Todos los derechos reservados
+  </div>
+</footer>
+
+  <script type="module">
+    import { db } from "./js/config.js";
+    import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+    const params = new URLSearchParams(window.location.search);
+    const refugioBuscado = params.get("refugio");
+    const cont = document.getElementById("donarContenido");
+
+    function iconoPlataforma(plataforma) {
+        if (plataforma === "Mercado Pago") return "💳";
+        if (plataforma === "Ualá") return "🅄";
+        if (plataforma === "Naranja X") return "🍊";
+        if (plataforma === "Transferencia bancaria") return "🏦";
+        return "🔗";
+    }
+
+    async function cargar() {
+        if (!refugioBuscado) {
+            cont.innerHTML = "<p style='text-align:center; color:#b71c1c;'>Falta indicar el refugio (ej: donar-refugio.html?refugio=Nombre).</p>";
+            return;
+        }
+
+        try {
+            const snap = await getDocs(collection(db, "perfiles_refugio"));
+            let perfil = null;
+            snap.forEach(d => {
+                const data = d.data();
+                if ((data.refugioNombre || "").toLowerCase() === refugioBuscado.toLowerCase()) {
+                    perfil = data;
+                }
+            });
+
+            if (!perfil) {
+                cont.innerHTML = `<p style='text-align:center; color:#b71c1c;'>Todavía no encontramos el perfil de "<strong>${refugioBuscado}</strong>". Pedile al refugio que complete su perfil y métodos de donación desde el panel de administración.</p>`;
+                return;
+            }
+
+            // 1. ALIAS ÚNICO (con botón de copiar)
+            let aliasHtml = "";
+            if (perfil.aliasPrincipal && perfil.aliasPrincipal.alias) {
+                const a = perfil.aliasPrincipal;
+                aliasHtml = `
+                    <div style="background:#fff8f0; border-left:4px solid #f68c1f; border-radius:8px; padding:16px 20px; margin-bottom:14px;">
+                        <div style="font-size:15px; font-weight:bold; color:#4a2b17;">${iconoPlataforma(a.plataforma)} ${a.plataforma}</div>
+                        <div style="display:flex; align-items:center; gap:10px; margin:8px 0;">
+                            <span id="aliasTexto" style="font-size:18px; color:#333; font-weight:bold;">${a.alias}</span>
+                            <button onclick="copiarAlias()" style="background:#f68c1f; color:white; border:none; border-radius:6px; padding:6px 14px; cursor:pointer; font-size:13px;">📋 Copiar</button>
+                        </div>
+                        <div style="font-size:13px; color:#777;">A nombre de: <strong>${a.titular}</strong></div>
+                    </div>`;
+            }
+
+            // 2. PLANES DE AYUDA MENSUAL (varios, cada uno con link)
+            const planes = Array.isArray(perfil.planesDonacion) ? perfil.planesDonacion : [];
+            let planesHtml = "";
+            if (planes.length > 0) {
+                planesHtml = `
+                    <h3 style="color:var(--marron); font-size:17px; margin:25px 0 10px;">Planes de ayuda mensual</h3>
+                    ${planes.map(p => `
+                        <a href="${p.link}" target="_blank" style="display:flex; justify-content:space-between; align-items:center; background:#fff; border:2px solid #ffd9b3; border-radius:8px; padding:14px 20px; margin-bottom:10px; text-decoration:none; color:#4a2b17; font-weight:bold; transition: all 0.2s;">
+                            <span>${p.titulo}</span>
+                            <span style="color:#f68c1f;">Ir a donar →</span>
+                        </a>
+                    `).join("")}
+                `;
+            }
+
+            if (!aliasHtml && !planesHtml) {
+                aliasHtml = `<p style="color:#888; text-align:center;">Este refugio todavía no cargó sus métodos de donación. Podés escribirles directo por Instagram para coordinar.</p>`;
+            }
+
+            cont.innerHTML = `
+                <div style="text-align:center; margin-bottom:25px;">
+                    ${perfil.logoUrl ? `<img src="${perfil.logoUrl}" alt="${perfil.refugioNombre}" style="width:110px; height:110px; object-fit:cover; border-radius:50%; box-shadow:0 4px 14px rgba(0,0,0,0.12);">` : ""}
+                    <h1 style="color:var(--marron); margin-top:15px;">Doná a ${perfil.refugioNombre}</h1>
+                    ${perfil.bio ? `<p style="color:#666; max-width:550px; margin:10px auto;">${perfil.bio}</p>` : ""}
+                </div>
+
+                <div class="transparencia-box" style="background:#fff8f0; border-left:4px solid #f68c1f; padding:15px 20px; border-radius:8px; margin-bottom:25px; font-size:14px; color:#555;">
+                    🔍 <strong>100% directo, cero intermediarios:</strong> tu aporte va directo a este refugio. Huella Consciente no retiene ni administra estas donaciones.
+                </div>
+
+                ${aliasHtml}
+                ${planesHtml}
+
+                <div style="text-align:center; margin-top:30px; display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                    ${perfil.instagram ? `<a href="https://instagram.com/${perfil.instagram}" target="_blank" class="btn-donar"><i class="fab fa-instagram"></i> Instagram</a>` : ""}
+                    ${perfil.facebook ? `<a href="${perfil.facebook}" target="_blank" class="btn-donar"><i class="fab fa-facebook"></i> Facebook</a>` : ""}
+                    ${perfil.tiktok ? `<a href="https://tiktok.com/@${perfil.tiktok}" target="_blank" class="btn-donar"><i class="fab fa-tiktok"></i> TikTok</a>` : ""}
+                </div>
+            `;
+
+        } catch (err) {
+            console.error(err);
+            cont.innerHTML = "<p style='text-align:center; color:#b71c1c;'>Ocurrió un error cargando la información. Probá de nuevo en unos minutos.</p>";
+        }
+    }
+
+    window.copiarAlias = () => {
+        const texto = document.getElementById("aliasTexto")?.innerText;
+        if (!texto) return;
+        navigator.clipboard.writeText(texto).then(() => {
+            alert("¡Alias copiado! " + texto);
+        }).catch(() => {
+            alert("No se pudo copiar automáticamente. Alias: " + texto);
+        });
+    };
+
+    cargar();
+  </script>
+
+
+
+</body>
+</html>

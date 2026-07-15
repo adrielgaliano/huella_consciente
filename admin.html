@@ -203,6 +203,7 @@
                         <input type="text" id="ln_telefono" placeholder="Teléfono (opcional)">
                         <select id="ln_reportadoPor" required>
                             <option value="">Tu refugio (quién reporta)...</option>
+                            <option value="Huella Consciente">Huella Consciente</option>
                             <option value="La Casita de Lula">La Casita de Lula</option>
                             <option value="FUNDACION HOGAR ROUSI">FUNDACION HOGAR ROUSI</option>
                             <option value="Gatitos en adopción Mendoza">Gatitos en adopción Mendoza</option>
@@ -231,7 +232,7 @@
         <div id="tab-perfil" class="admin-tab-content">
             <div class="panel">
                 <h2>🏠 Perfil del Refugio</h2>
-                <p style="font-size:13px; color:#777; margin-top:-10px;">Esta información se usará más adelante para mostrar tu refugio en la web pública.</p>
+                <p style="font-size:13px; color:#777; margin-top:-10px;">Esta información se usa para mostrar tu refugio en la web pública (página de Refugios y de Donaciones).</p>
                 <form id="formPerfil">
                     <div class="form-grid">
                         <select id="pf_refugioNombre" required>
@@ -247,7 +248,7 @@
                         <input type="text" id="pf_horario" placeholder="Horario de contacto (ej: Lun a Vie 9 a 18hs)">
                         <input type="text" id="pf_instagram" placeholder="Instagram (usuario, sin @)">
                         <input type="text" id="pf_facebook" placeholder="Link de Facebook">
-                        <input type="text" id="pf_whatsappPublico" placeholder="WhatsApp público (549...)">
+                        <input type="text" id="pf_tiktok" placeholder="TikTok (usuario, sin @)">
                         <div>
                             <label style="font-size:12px;">Logo del refugio</label>
                             <input type="file" id="pf_logo" accept="image/*">
@@ -261,6 +262,36 @@
                         </div>
                     </div>
                 </form>
+            </div>
+
+            <div class="panel" style="margin-top:20px;">
+                <h2>💳 Alias / CBU / CVU</h2>
+                <p style="font-size:13px; color:#777; margin-top:-10px;">Tu dato de transferencia directa. Solo puede haber uno — en la página de donación aparece con un botón para copiarlo.</p>
+
+                <div class="form-grid">
+                    <select id="al_plataforma">
+                        <option value="Mercado Pago">Mercado Pago</option>
+                        <option value="Ualá">Ualá</option>
+                        <option value="Naranja X">Naranja X</option>
+                        <option value="Transferencia bancaria">Transferencia bancaria (CBU/CVU)</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <input type="text" id="al_alias" placeholder="Alias / CBU / CVU">
+                    <input type="text" id="al_titular" placeholder="A nombre de quién (titular)">
+                </div>
+            </div>
+
+            <div class="panel" style="margin-top:20px;">
+                <h2>🔗 Planes de Ayuda Mensual</h2>
+                <p style="font-size:13px; color:#777; margin-top:-10px;">Si tenés varios planes con distintos montos (links de suscripción, Mercado Pago, etc.), agregalos acá — podés cargar los que quieras. Cada uno lleva un título y el link donde se redirige a quien quiera donar.</p>
+
+                <div id="donationMethodsList"></div>
+
+                <div class="form-grid" style="margin-top:10px; border-top: 1px dashed #ddd; padding-top:15px;">
+                    <input type="text" id="dm_titulo" placeholder="Título (ej: Plan Bronce - $2000/mes)">
+                    <input type="text" id="dm_link" placeholder="Link al que se redirige (https://...)">
+                    <button type="button" id="btnAgregarMetodo" class="btn-submit" style="background:#2196F3;">+ AGREGAR PLAN</button>
+                </div>
             </div>
         </div>
         <!-- ============ FIN PESTAÑA: MI PERFIL ============ -->
