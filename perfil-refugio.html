@@ -3,27 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finales Felices | Adopciones en Mendoza - Huella Consciente</title>
-  <link rel="canonical" href="https://huellaconsciente.com.ar/adoptados.html">
-  <meta name="description" content="Historias reales de perros y gatos adoptados en Mendoza a través de Huella Consciente. Inspirate y sumate a la adopción responsable.">
-  <meta property="og:title" content="Finales Felices | Adopciones en Mendoza - Huella Consciente">
-  <meta property="og:description" content="Historias reales de perros y gatos adoptados en Mendoza a través de Huella Consciente. Inspirate y sumate a la adopción responsable.">
-  <meta property="og:url" content="https://huellaconsciente.com.ar/adoptados.html">
+  <title>Refugio - Huella Consciente</title>
   <link rel="icon" href="images/Isotipo_sin_fondo.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LQREM7ZJ3J"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LQREM7ZJ3J');
-  </script>
+  <meta name="theme-color" content="#f68c1f">
 </head>
 <body>
 
- <!-- Menú Desktop -->
+  <!-- Header -->
   <header>
     <div class="logo">
       <a href="index.html">
@@ -33,8 +21,6 @@
     </div>
     <nav>
         <a href="index.html">Inicio</a>
-        
-        <!-- Dropdown: Adopciones -->
         <div class="dropdown">
             <button class="dropbtn">Adopciones <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></button>
             <div class="dropdown-content">
@@ -43,8 +29,6 @@
                 <a href="adoptados.html">Historias de éxito</a>
             </div>
         </div>
-
-        <!-- Dropdown: Comunidad -->
         <div class="dropdown">
             <button class="dropbtn">Comunidad <i class="fas fa-chevron-down" style="font-size: 12px; margin-left: 4px;"></i></button>
             <div class="dropdown-content">
@@ -53,21 +37,15 @@
                 <a href="contacto.html">Contacto</a>
             </div>
         </div>
-
         <a href="blog.html">Blog</a>
         <button class="donar-btn"><a href="donaciones.html">Donar 🐾</a></button>
     </nav>
-    <!-- EL ÍCONO DEL MENÚ MÓVIL ESTÁ AQUÍ -->
     <span class="hamburger" onclick="openNav()">&#9776;</span>
   </header>
 
-  <!-- Menú overlay (Mobile) -->
   <div id="myNav" class="overlay">
     <span class="closebtn" onclick="closeNav()">&times;</span>
-    
     <a href="index.html">Inicio</a>
-    
-    <!-- Acordeón Mobile: Adopciones -->
     <details class="mobile-dropdown">
         <summary>Adopciones <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
         <div class="mobile-dropdown-links">
@@ -76,8 +54,6 @@
             <a href="adoptados.html">Historias de éxito</a>
         </div>
     </details>
-
-    <!-- Acordeón Mobile: Comunidad -->
     <details class="mobile-dropdown">
         <summary>Comunidad <i class="fas fa-chevron-down" style="font-size: 18px; margin-left: 8px;"></i></summary>
         <div class="mobile-dropdown-links">
@@ -86,35 +62,22 @@
             <a href="contacto.html">Contacto</a>
         </div>
     </details>
-
     <a href="blog.html">Blog</a>
     <button class="donar-btn" style="margin-top:20px;"><a href="donaciones.html">Donar 🐾</a></button>
   </div>
   <script src="js/menu.js"></script>
 
-  <section style="text-align: center; padding: 50px 20px; background-color: #fff8e1;">
-    <h2 style="color: var(--marron); font-size: 2.5rem;">🎉 Historias de Éxito</h2>
-    <p style="font-size: 1.1rem; color: #555;">Ellos ya encontraron su lugar en el mundo. <br>¡Gracias por hacerlo posible!</p>
-  </section>
+  <!-- Contenido armado automáticamente desde la base de datos -->
+  <div id="perfil-refugio-container" style="min-height:60vh;"></div>
 
-  <div class="sponsor-cta">
-    <h2>¿Querés cambiar una vida vos también?</h2>
-    
-    <a href="adoptar.html" class="btn-cta-sponsor">
-       Ver animales en adopción
-    </a>
-  </div>
+  <script type="module" src="js/perfil-refugio.js"></script>
 
-  <section class="pet-grid" id="adopted-list" style="margin-top: 20px; min-height: 400px;">
-      <p style="text-align:center; width:100%;">Cargando historias de éxito...</p>
-  </section>
-
+  <!-- Footer -->
   <footer>
     <div class="footer-logo">
       <img src="images/Isotipo_sin_fondo_blanco.png" alt="Huella Consciente Logo" width="80">
       <h3>HUELLA CONSCIENTE</h3>
     </div>
-
     <div class="footer-links">
       <div>
         <h4>Encontranos:</h4>
@@ -122,7 +85,6 @@
         <a href="https://www.youtube.com/@huellaconsciente.oficial"><i class="fab fa-youtube"></i></a>
         <a href="https://www.instagram.com/huellaconsciente.oficial"><i class="fab fa-instagram"></i></a>
       </div>
-
       <div>
         <ul>
           <li><a href="index.html">Inicio</a></li>
@@ -130,7 +92,6 @@
           <li><a href="Anunciantes.html">Anunciantes</a></li>
         </ul>
       </div>
-
       <div>
         <ul>
           <li><a href="terminos.html">Términos y Condiciones</a></li>
@@ -138,13 +99,9 @@
         </ul>
       </div>
     </div>
-
     <div class="copy">
       © 2025 Huella Consciente - Todos los derechos reservados
     </div>
   </footer>
-
-  <script type="module" src="js/adoptados.js"></script>
-
 </body>
 </html>

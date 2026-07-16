@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Refugios - Huella Consciente</title>
+  <title>Refugios de Animales en Mendoza | Huella Consciente</title>
+  <link rel="canonical" href="https://huellaconsciente.com.ar/refugios.html">
+  <meta name="description" content="Conocé a los refugios y rescatistas de animales de Mendoza que trabajan con Huella Consciente: su historia, sus redes y cómo donarles directamente.">
+  <meta property="og:title" content="Refugios de Animales en Mendoza | Huella Consciente">
+  <meta property="og:description" content="Conocé a los refugios y rescatistas de animales de Mendoza que trabajan con Huella Consciente: su historia, sus redes y cómo donarles directamente.">
+  <meta property="og:url" content="https://huellaconsciente.com.ar/refugios.html">
   <link rel="icon" href="images/Isotipo_sin_fondo.png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -91,6 +96,10 @@
     <h2>Refugios Amigos</h2>
     <p>Conoce a los refugios que trabajan día a día para darles una segunda oportunidad a nuestros peludos.</p>
 
+    <div class="pm-search-row" style="max-width:500px; margin: 0 auto 30px;">
+      <input type="text" id="buscarRefugio" placeholder="🔎 Buscar refugio por nombre...">
+    </div>
+
     <div class="grid" id="refugiosGrid">
       <p style="text-align:center; width:100%; color:#888;">Cargando refugios...</p>
     </div>
@@ -100,12 +109,42 @@
     import { db } from "./js/config.js";
     import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
+    let todosLosPerfiles = [];
+
+    function renderRefugios(lista) {
+        const grid = document.getElementById("refugiosGrid");
+
+        if (lista.length === 0) {
+            grid.innerHTML = "<p style='text-align:center; width:100%; color:#888;'>No encontramos refugios con ese nombre.</p>";
+            return;
+        }
+
+        grid.innerHTML = lista.map(p => `
+            <div class="card">
+                <img src="${p.logoUrl || 'images/Isotipo_sin_fondo.png'}" alt="${p.refugioNombre}" class="refugio-img">
+                <h3>${p.refugioNombre}</h3>
+                <p>${p.bio || "Refugio aliado de Huella Consciente."}</p>
+
+                <div class="social-links">
+                    ${p.instagram ? `<a href="https://instagram.com/${p.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>` : ""}
+                    ${p.facebook ? `<a href="${p.facebook}" target="_blank"><i class="fab fa-facebook"></i></a>` : ""}
+                    ${p.tiktok ? `<a href="https://tiktok.com/@${p.tiktok}" target="_blank"><i class="fab fa-tiktok"></i></a>` : ""}
+                </div>
+
+                <div class="acciones">
+                    <a href="perfil-refugio.html?refugio=${p.id}" class="btn-ver">Ver animales</a>
+                    <a href="donar-refugio.html?refugio=${encodeURIComponent(p.refugioNombre)}" class="btn-donar">Donar</a>
+                </div>
+            </div>
+        `).join("");
+    }
+
     async function cargarRefugios() {
         const grid = document.getElementById("refugiosGrid");
         try {
             const snap = await getDocs(collection(db, "perfiles_refugio"));
             const perfiles = [];
-            snap.forEach(d => { if (d.data().refugioNombre) perfiles.push(d.data()); });
+            snap.forEach(d => { if (d.data().refugioNombre) perfiles.push({ id: d.id, ...d.data() }); });
 
             if (perfiles.length === 0) {
                 grid.innerHTML = "<p style='text-align:center; width:100%; color:#888;'>Todavía no hay refugios con perfil cargado.</p>";
@@ -113,31 +152,22 @@
             }
 
             perfiles.sort((a, b) => (a.refugioNombre || "").localeCompare(b.refugioNombre || ""));
-
-            grid.innerHTML = perfiles.map(p => `
-                <div class="card">
-                    <img src="${p.logoUrl || 'images/Isotipo_sin_fondo.png'}" alt="${p.refugioNombre}" class="refugio-img">
-                    <h3>${p.refugioNombre}</h3>
-                    <p>${p.bio || "Refugio aliado de Huella Consciente."}</p>
-
-                    <div class="social-links">
-                        ${p.instagram ? `<a href="https://instagram.com/${p.instagram}" target="_blank"><i class="fab fa-instagram"></i></a>` : ""}
-                        ${p.facebook ? `<a href="${p.facebook}" target="_blank"><i class="fab fa-facebook"></i></a>` : ""}
-                        ${p.tiktok ? `<a href="https://tiktok.com/@${p.tiktok}" target="_blank"><i class="fab fa-tiktok"></i></a>` : ""}
-                    </div>
-
-                    <div class="acciones">
-                        <a href="adoptar.html?refugio=${encodeURIComponent(p.refugioNombre)}" class="btn-ver">Ver animales</a>
-                        <a href="donar-refugio.html?refugio=${encodeURIComponent(p.refugioNombre)}" class="btn-donar">Donar</a>
-                    </div>
-                </div>
-            `).join("");
+            todosLosPerfiles = perfiles;
+            renderRefugios(todosLosPerfiles);
 
         } catch (err) {
             console.error(err);
             grid.innerHTML = "<p style='text-align:center; width:100%; color:#b71c1c;'>Error al cargar los refugios.</p>";
         }
     }
+
+    document.getElementById("buscarRefugio")?.addEventListener("input", (e) => {
+        const termino = e.target.value.trim().toLowerCase();
+        const filtrados = todosLosPerfiles.filter(p =>
+            (p.refugioNombre || "").toLowerCase().includes(termino)
+        );
+        renderRefugios(filtrados);
+    });
 
     cargarRefugios();
   </script>
