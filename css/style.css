@@ -3437,3 +3437,133 @@ nav a.active::after {
 @media (max-width: 900px) {
   .prensa-arrows { display: flex; }
 }
+/* ==========================================================
+   PERFIL PÚBLICO DE REFUGIO (estilo PetMatch)
+========================================================== */
+.pm-profile-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 30px auto 60px;
+  padding: 30px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.pm-profile-side {
+  flex: 0 0 260px;
+  display: flex;
+  flex-direction: column;
+}
+.pm-profile-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--beige);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 14px;
+}
+.pm-profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffe1ef;
+  color: var(--marron);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 12px;
+}
+.pm-profile-side h1 {
+  font-size: 22px;
+  color: var(--marron);
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.pm-profile-location {
+  font-size: 14px;
+  color: #8a7a6d;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pm-profile-bio {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.pm-profile-socials { display:flex; gap:10px; margin-bottom: 18px; }
+.pm-profile-socials a {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--beige); display:flex; align-items:center; justify-content:center;
+  color: var(--marron); transition: background .2s, color .2s;
+}
+.pm-profile-socials a:hover { background: var(--naranja); color:#fff; }
+
+.pm-profile-count {
+  border: 1px solid #e3d9cd;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--marron);
+  text-align: center;
+  margin-bottom: 14px;
+  background: var(--beige);
+}
+.pm-profile-donar {
+  display: block;
+  text-align: center;
+  background: #d67d4b;
+  color: #fff;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.pm-profile-donar:hover { background: var(--marron); }
+
+.pm-profile-pets {
+  flex: 1 1 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  align-content: start;
+}
+.pm-mini-card {
+  border: 1px solid #eee;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  background:#fff;
+  display:block;
+}
+.pm-mini-card:hover { transform: translateY(-4px); box-shadow: 0 8px 18px rgba(0,0,0,0.1); }
+.pm-mini-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  display: block;
+}
+.pm-mini-card .pm-mini-body { padding: 10px 12px 14px; }
+.pm-mini-card h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  color: var(--marron);
+  display:flex; align-items:center; gap:5px;
+}
+.pm-mini-card .pm-mini-meta { font-size: 12px; color:#8a7a6d; margin:0; }
+
+@media (max-width: 700px) {
+  .pm-profile-box { flex-direction: column; padding: 20px; }
+  .pm-profile-side { flex: none; }
+}
