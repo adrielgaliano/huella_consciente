@@ -58,7 +58,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 <i class="fas fa-heart"></i> ¡Quiero Adoptar a ${data.nombre}!
                             </button>
                             <button type="button" id="btnCompartirMascota" style="font-size: 1.1rem; padding: 15px 25px; background:#4a2b17; color:white; border:none; border-radius:8px; cursor:pointer;">
-                                <i class="fas fa-share-nodes"></i> Compartir
+                                <i class="fas fa-share-nodes"></i> Compartir historia
+                            </button>
+                            <button type="button" id="btnCompartirLink" style="font-size: 1.1rem; padding: 15px 25px; background:#fff; color:#4a2b17; border:2px solid #4a2b17; border-radius:8px; cursor:pointer;">
+                                <i class="fas fa-link"></i> Compartir link
                             </button>
                         </div>
                     </div>
@@ -74,6 +77,32 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (btnCompartir && window.mostrarPoster) {
                 btnCompartir.onclick = () => {
                     window.mostrarPoster(data.nombre, data.fotoUrl, data.refugioNombre, data.descripcion);
+                };
+            }
+
+            // Botón "Compartir link": comparte (o copia) la URL directa de esta ficha
+            const btnCompartirLink = document.getElementById("btnCompartirLink");
+            if (btnCompartirLink) {
+                btnCompartirLink.onclick = async () => {
+                    const url = window.location.href;
+                    const textoCompartir = `¡Mirá a ${data.nombre}! Está buscando familia en ${data.refugioNombre} 🐾`;
+
+                    if (navigator.share) {
+                        try {
+                            await navigator.share({ title: `Adoptá a ${data.nombre}`, text: textoCompartir, url });
+                        } catch (e) {
+                            // El usuario canceló el share nativo, no hacemos nada más
+                        }
+                    } else {
+                        try {
+                            await navigator.clipboard.writeText(url);
+                            const original = btnCompartirLink.innerHTML;
+                            btnCompartirLink.innerHTML = "✅ ¡Link copiado!";
+                            setTimeout(() => btnCompartirLink.innerHTML = original, 1800);
+                        } catch (e) {
+                            alert("Copiá este link para compartirlo: " + url);
+                        }
+                    }
                 };
             }
         } else {
